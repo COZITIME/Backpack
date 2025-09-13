@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ebf3ad867424d96f9e9e0cb38280c, type: 3}
+  m_Name: Enemy Entity Getter
+  m_EditorClassIdentifier: Assembly-CSharp::RandomEntityGetter
+  weightedEntities:
+    items:
+    - fraction: 0.3030303
+      Weight: 1
+      Item:
+        prefab: {fileID: 1181845890193696185, guid: 8c20198d3d9794d6788599c714f3d162, type: 3}
+        minLevelToAppear: 0
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 2
+    - fraction: 0.3030303
+      Weight: 1
+      Item:
+        prefab: {fileID: 2061514634128071981, guid: c3bd8d2f347254234a39d1458641c5a5, type: 3}
+        minLevelToAppear: 0
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 2
+    - fraction: 0.24242425
+      Weight: 0.8
+      Item:
+        prefab: {fileID: 2061514634128071981, guid: 31ddd8e33788e46e2be177d135b24fb3, type: 3}
+        minLevelToAppear: 0
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 2
+    - fraction: 0.15151516
+      Weight: 0.5
+      Item:
+        prefab: {fileID: 1181845890193696185, guid: f1939f3410ba04ed0bdd341f2e210f6e, type: 3}
+        minLevelToAppear: 0
+        minProgressionToAppear: 3
+        maxOfTypeAtOnce: 2
