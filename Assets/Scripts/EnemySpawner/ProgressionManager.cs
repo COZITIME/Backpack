@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class ProgressionManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class ProgressionManager : MonoBehaviour
     private float _progression;
 
     public int Level => 0;
+    
+    [ShowInInspector, DisplayAsString]
     public float Progression => _progression;
 
 
