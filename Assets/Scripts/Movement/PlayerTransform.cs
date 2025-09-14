@@ -34,8 +34,9 @@ public class PlayerTransform : EntityTransform
     {
         if (!_isAwaitingInput) return false;
 
-        DidEat = false;
         // check if we are eating
+
+        DidEat = false;
         var entitiesAtPosition = MapManager.Instance.GetEntitiesAtPosition(position);
         var count = entitiesAtPosition.Count;
         if (count > 0)
@@ -64,6 +65,8 @@ public class PlayerTransform : EntityTransform
 
                     return base.TryMoveTo(position); // gtfo
                 }
+
+                SoundManager.Instance.Play(SoundType.BellyFull);
             }
 
             _isAwaitingInput = !DidEat;
@@ -86,7 +89,8 @@ public class PlayerTransform : EntityTransform
     public override void FaceInDirection(FaceDirection direction)
     {
         base.FaceInDirection(direction);
-        bool isEating = MapManager.Instance.GetEntitiesAtPosition(MapPosition + direction.FaceDirectionToDirection())
+        bool isEating = !BellyManager.Instance.PlayerBelly.IsFull && MapManager.Instance
+            .GetEntitiesAtPosition(MapPosition + direction.FaceDirectionToDirection())
             .Any();
         _playerArtHandler.SetSprite(Direction, isEating);
     }

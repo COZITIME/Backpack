@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class EnemySpawnManager : MonoBehaviour
 {
@@ -18,9 +15,7 @@ public class EnemySpawnManager : MonoBehaviour
     private AnimationCurve durationToSpawnOverProgressionCurve =
         new AnimationCurve(new Keyframe(0, 4), new Keyframe(200, 0.8f));
 
-
     private int turnCountDown = 0;
-
     private float lastSpawnProgression = 0;
 
     [ShowInInspector, DisplayAsString]
@@ -32,9 +27,7 @@ public class EnemySpawnManager : MonoBehaviour
         _nextWait = GetWait(0f);
     }
 
-
     private float GetWait(float t) => durationToSpawnOverProgressionCurve.Evaluate(t);
-
 
     private void Start()
     {

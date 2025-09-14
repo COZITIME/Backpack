@@ -34,8 +34,13 @@ public class BellyManager : MonoBehaviour
 
     public void SetText(int amountInBelly)
     {
-        bellyText.text = $"{amountInBelly}/{PlayerBelly.BellySize}";
-    }
+        var max = PlayerBelly.BellySize;
+        if (amountInBelly >= max)
+        {
+            bellyText.text = "FULL";
+            return;
+        }
 
-   
+        bellyText.text = $"Capacity: {amountInBelly}/{max}";
+    }
 }

@@ -16,7 +16,7 @@ public class MorselSpawningManager : MonoBehaviour
 
     [SerializeField]
     private EntityTransform heartCookedPrefab;
-    
+
     private void Awake()
     {
         Instance = this;
@@ -28,7 +28,7 @@ public class MorselSpawningManager : MonoBehaviour
             ? (isCooked ? heartCookedPrefab : heartPrefab)
             : (isCooked ? morselCookedPrefab : morselPrefab);
 
-        var spawn = Instantiate(prefab, oldEntity.transform.position, Quaternion.identity);
+        var spawn = Instantiate(prefab, (Vector2)oldEntity.MapPosition, Quaternion.identity);
 
         int? bellyIndex = oldEntity.BellyIndex;
         if (bellyIndex.HasValue)

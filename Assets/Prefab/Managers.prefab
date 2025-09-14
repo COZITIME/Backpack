@@ -573,7 +573,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 5
+      value: 2
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -581,32 +581,32 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 9.326923
-      value: 3.0800002
-      inSlope: -0.021894753
-      outSlope: -0.021894753
+      time: 2.8307798
+      value: 1.7360164
+      inSlope: -0.031017145
+      outSlope: -0.031017145
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 1
       outWeight: 0.15927023
     - serializedVersion: 3
-      time: 32.81552
-      value: 1.8808116
-      inSlope: -0.019720903
-      outSlope: -0.019720903
+      time: 7.0715523
+      value: 0.681006
+      inSlope: -0.021601805
+      outSlope: -0.021601805
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.39303514
     - serializedVersion: 3
-      time: 72.058205
-      value: 0.91473913
-      inSlope: -0.011068389
-      outSlope: -0.011068389
+      time: 26.344606
+      value: 0.39774325
+      inSlope: -0.005885078
+      outSlope: -0.005885078
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.29179528
     - serializedVersion: 3
       time: 200.17744
       value: 0.16480982
@@ -1763,10 +1763,10 @@ MonoBehaviour:
     - AudioClip: {fileID: 8300000, guid: 5c580f52d53f14c9cad8b8416bdc0645, type: 3}
     - AudioClip: {fileID: 8300000, guid: 68357c0d01d8b4c0694587d5a6978150, type: 3}
     - AudioClip: {fileID: 8300000, guid: b02f070b72cfe423e8ea0309089251a9, type: 3}
-    - AudioClip: {fileID: 0}
-    - AudioClip: {fileID: 0}
-    - AudioClip: {fileID: 8300000, guid: 3a2c2632a27e74e55824b1437cf6d849, type: 3}
-    - AudioClip: {fileID: 0}
+    - AudioClip: {fileID: 8300000, guid: 6044e99ebc00340a9b1f83170ed82ce1, type: 3}
+    - AudioClip: {fileID: 8300000, guid: 0e6d4454b790741f5a895850057663d3, type: 3}
+    - AudioClip: {fileID: 8300000, guid: 55a1a9d8f02be45c5985392765206e47, type: 3}
+    - AudioClip: {fileID: 8300000, guid: 0e6d4454b790741f5a895850057663d3, type: 3}
 --- !u!1 &7623015905790016330
 GameObject:
   m_ObjectHideFlags: 0
