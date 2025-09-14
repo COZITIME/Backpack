@@ -17,15 +17,19 @@ public class XpManager : MonoBehaviour
     [BoxGroup("UI"), SerializeField]
     private TMP_Text levelText;
 
+    [BoxGroup("UI"), SerializeField]
+    private Image bone;
+
     [BoxGroup("Xp"), SerializeField]
     private int xpRequiredAt1 = 3; // XP to reach level 2
 
     [BoxGroup("Xp"), SerializeField]
     private int xpIncreaseAtNextLevel = 2; // How much more each level costs
 
+
     [SerializeField]
     private AudioClip levelUpSound;
-    
+
 
     public int Xp => _xp;
 
@@ -42,6 +46,9 @@ public class XpManager : MonoBehaviour
         _level = GetLevel();
         levelText.text = $"Lv {_level}";
         xpBar.fillAmount = GetFillAmount();
+        UpdateBonePosition(0f);
+
+        GainXp(0);
     }
 
     public void GainXp(int amount)
@@ -52,7 +59,9 @@ public class XpManager : MonoBehaviour
         float newFill = GetFillAmount();
 
         // Animate the bar fill
-        xpBar.DOFillAmount(newFill, 0.35f).SetEase(Ease.OutQuad);
+        xpBar.DOFillAmount(newFill, 0.35f)
+            .SetEase(Ease.OutQuad)
+            .OnUpdate(() => UpdateBonePosition(xpBar.fillAmount));
 
         // If we leveled up, animate the text & fire the action
         if (newLevel > _level)
@@ -67,8 +76,10 @@ public class XpManager : MonoBehaviour
             levelText.transform
                 .DOScale(1.3f, 0.15f)
                 .SetLoops(2, LoopType.Yoyo);
-            
+
             SoundManager.Instance.Play(levelUpSound);
+
+            RelicSpawnManager.Instance.SpawnRelics(() => { Debug.Log("Spawn Relics"); });
         }
     }
 
@@ -125,5 +136,23 @@ public class XpManager : MonoBehaviour
         }
 
         return (totalXpNeeded + xpForNext) - _xp;
+    }
+
+
+    private void UpdateBonePosition(float fill)
+    {
+        // We assume the bar uses an Image with "Filled" type = Horizontal
+        RectTransform barRect = xpBar.rectTransform;
+        RectTransform boneRect = bone.rectTransform;
+
+        // get bar width in local space
+        float width = barRect.rect.width;
+
+        // fill is 0..1; anchoredPosition.x is from -width/2 to +width/2 if pivot is 0.5
+        float x = (fill - 0.5f) * width;
+
+        Vector2 bonePos = boneRect.anchoredPosition;
+        bonePos.x = x;
+        boneRect.anchoredPosition = bonePos;
     }
 }

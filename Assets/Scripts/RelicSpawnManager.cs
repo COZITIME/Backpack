@@ -23,6 +23,11 @@ public class RelicSpawnManager : MonoBehaviour
         var prefab = relicGetter.GetEntity();
         SpawnManager.Instance.Spawn(prefab);
     }
+
+    public void SpawnRelics(Action onComplete = null)
+    {
+        
+    }
 }
 
 
