@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,12 @@ public class GameOverManager : MonoBehaviour
     [SerializeField]
     private UnityEngine.UI.Button restartButton;
 
+    [SerializeField]
+    private TMP_Text levelText;
+
+    [SerializeField]
+    public TMP_Text scoreText;
+
     private void Awake()
     {
         Instance = this;
@@ -21,5 +28,8 @@ public class GameOverManager : MonoBehaviour
     {
         gameOverPanel.gameObject.SetActive(true);
         restartButton.onClick.AddListener(() => { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); });
+
+        scoreText.text = $"Consumed {XpManager.Instance.Xp}";
+        levelText.text = $"Level {XpManager.Instance.GetLevel()}";
     }
 }

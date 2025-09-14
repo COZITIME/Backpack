@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148ebf3ad867424d96f9e9e0cb38280c, type: 3}
+  m_Name: Relic Entity Getter
+  m_EditorClassIdentifier: Assembly-CSharp::RandomEntityGetter
+  weightedEntities:
+    items:
+    - fraction: 0.31250003
+      Weight: 1
+      Item:
+        prefab: {fileID: 3266237745521492038, guid: 24c75d816c7e14d139c748fede7f32e0, type: 3}
+        minLevelToAppear: 0
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 10
+    - fraction: 0.31250003
+      Weight: 1
+      Item:
+        prefab: {fileID: 2718408738677929897, guid: 24fc43611f90f461390118d5f8526a96, type: 3}
+        minLevelToAppear: 0
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 10
+    - fraction: 0.18750001
+      Weight: 0.6
+      Item:
+        prefab: {fileID: 3266237745521492038, guid: d31f7e0158667461dbeba0100052e481, type: 3}
+        minLevelToAppear: 0
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 2
+    - fraction: 0.18750001
+      Weight: 0.6
+      Item:
+        prefab: {fileID: 3266237745521492038, guid: 5ce2ee1f18bec44ec8846d2a7a4a2571, type: 3}
+        minLevelToAppear: 0
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 2

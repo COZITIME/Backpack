@@ -34,6 +34,8 @@ public class BellyManager : MonoBehaviour
 
     public void SetText(int amountInBelly)
     {
-        bellyText.text = $"{amountInBelly}/{bellySize}";
+        bellyText.text = $"{amountInBelly}/{PlayerBelly.BellySize}";
     }
+
+   
 }

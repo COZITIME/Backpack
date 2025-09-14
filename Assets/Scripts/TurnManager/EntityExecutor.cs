@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using NUnit.Framework;
 using Sirenix.OdinInspector;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -33,21 +34,15 @@ public class EntityExecutor : MonoBehaviour
         Sprite = GetComponent<SpriteRenderer>();
     }
 
-
-    public void Start()
-    {
-        TurnManager.Instance.MoveToMapOrder(this, AddToTop);
-    }
-
     protected virtual bool AddToTop => false;
-
 
     public bool IsMovementStunned => MovementStun > 0;
 
     public virtual IEnumerator TickDownMovementStunCoroutine()
     {
         MovementStun--;
-        yield return Sprite.DOColor(IsMovementStunned ? Color.grey : Color.white, .5f);
+        yield return null;
+        //  yield return Sprite.DOColor(IsMovementStunned ? Color.black : Color.white, .5f);
     }
 
     public virtual IEnumerator StartMovementStunCoroutine(int stunAmount, bool isAdditive = false)
@@ -58,10 +53,11 @@ public class EntityExecutor : MonoBehaviour
         }
         else
         {
-            MovementStun = stunAmount;
+            MovementStun = math.max(MovementStun, stunAmount);
         }
 
-        yield return Sprite.DOColor(IsMovementStunned ? Color.grey : Color.white, .5f);
+        yield return null;
+        //yield return Sprite.DOColor(IsMovementStunned ? Color.black : Color.white, .5f);
     }
 
     public virtual IEnumerator ExecuteInsideBellyEffectCoroutine()
@@ -80,17 +76,31 @@ public class EntityExecutor : MonoBehaviour
 
     public virtual IEnumerator ExecuteMovementCoroutine()
     {
+        if (IsMovementStunned)
+        {
+            yield return StartMovementStunCoroutine(-1);
+            yield break;
+        }
+
         yield return null;
     }
 
-    public virtual IEnumerator OnEatCoroutine()
+    public virtual IEnumerator OnEatenCoroutine()
     {
-        yield return null;
+        int d = RelicManager.Instance.GetRelicCount(RelicType.BiteDamage);
+        if (d > 0)
+        {
+            yield return Data.Damage(d);
+        }
     }
 
-    public virtual IEnumerator OnRegurgitateCoroutine()
+    public virtual IEnumerator OnRegurgitatedCoroutine()
     {
-        yield return null;
+        int d = RelicManager.Instance.GetRelicCount(RelicType.RegurgeDamage);
+        if (d > 0)
+        {
+            yield return Data.Damage(d);
+        }
     }
 
     public virtual IEnumerator OnKilledCoroutine()
@@ -125,9 +135,10 @@ public class EntityExecutor : MonoBehaviour
     {
         var traitFlags = Data.Traits;
 
-        if (traitFlags.HasFlag(Trait.Burner))
+        if (!IsMovementStunned && traitFlags.HasFlag(Trait.Burner))
         {
-            var neighbours = NeighbourGetter.GetNeighboursInDistance(EntityTransform, 1);
+            ParticleManager.Instance.PlayParticles(ParticleType.BurnSmall, transform.position);
+            var neighbours = NeighbourGetter.GetNeighboursInDistance(EntityTransform, 1.5f);
             foreach (var neighbour in neighbours)
             {
                 EntityData neighbourEntityData = neighbour.EntityData;
@@ -145,10 +156,19 @@ public class EntityExecutor : MonoBehaviour
         {
             yield return Data.Damage(1);
         }
+
+        if (traitFlags.HasFlag(Trait.Morsel) && isInBelly)
+        {
+            this.Data.TryEatMorsel();
+        }
     }
 
     public virtual IEnumerator BurnEntity(EntityData enemy)
     {
+        if (enemy.IsInvincible) yield break;
+        var part = ParticleManager.Instance.PlayParticles(ParticleType.Burn, transform.position);
+        yield return part.transform.DOMove(enemy.transform.position, .2f);
+        SoundManager.Instance.Play(hurtSound);
         yield return enemy.Damage(damage);
     }
 
@@ -164,5 +184,16 @@ public class EntityExecutor : MonoBehaviour
         }
 
         yield return new WaitForSeconds(.3f);
+    }
+
+    public void SetStun(int i)
+    {
+        StartCoroutine(StartMovementStunCoroutine(i));
+    }
+
+    public IEnumerator GainHealthCoroutine(int health)
+    {
+        yield return Sprite.DOColor(Color.green, 0.2f);
+        yield return Sprite.DOColor(Color.white, 0.2f);
     }
 }

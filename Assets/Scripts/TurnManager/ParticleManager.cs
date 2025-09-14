@@ -15,9 +15,11 @@ public class ParticleManager : MonoBehaviour
         Instance = this;
     }
 
-    public void PlayParticles(ParticleType particleType, Vector2 position)
+    public ParticleSystem PlayParticles(ParticleType particleType, Vector2 position)
     {
         var particles = Instantiate(particleSystemPrefabs[particleType], position, Quaternion.identity, transform);
         particles.Play();
+        Destroy(particles.gameObject, particles.main.duration + .5f);
+        return particles;
     }
 }

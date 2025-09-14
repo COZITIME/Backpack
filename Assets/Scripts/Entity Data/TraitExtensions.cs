@@ -9,11 +9,12 @@ public static class TraitExtensions
         {
             Trait.None => "No Traits",
             Trait.Player => "This is you",
-            Trait.Melee => "Does melee damage to play if it is next to it",
+            Trait.Melee => "Does melee damage to the player if it is next to it",
             Trait.Relic => "A relic that gives the player effects when in their belly, it cannot be damaged",
             Trait.Fireproof => "Immune to fire",
             Trait.Burner => "Deals fire damage to surrounding entities. Immune to fire",
             Trait.Bomb => "Explodes on death damaging all within 2 tiles, takes 1 damage every turn",
+            Trait.Morsel => "Can be consumed in the belly, grants sustenance to level up the player",
 
             _ => $"No Description for Trait: {trait}",
         };
@@ -28,7 +29,9 @@ public static class TraitExtensions
             Trait.Fireproof => Color.darkRed,
             Trait.Burner => Color.darkRed,
             Trait.Bomb => Color.darkRed,
-            Trait.Relic => Color.yellowNice,
+            Trait.Relic => Color.cornflowerBlue,
+            Trait.Morsel => Color.rosyBrown,
+
             _ => Color.orangeRed
         };
     }

@@ -10,6 +10,9 @@ public class EntityTransform : MonoBehaviour
     [SerializeField]
     private bool canBeEaten = true;
 
+    [SerializeField]
+    private bool addToMapAndTurnManagerOnStart = false;
+
     public Vector2Int MapPosition { get; private set; }
     public int? BellyIndex { get; private set; }
 
@@ -21,26 +24,29 @@ public class EntityTransform : MonoBehaviour
     public EntityData EntityData { get; private set; }
     public EntityExecutor EntityExecutor { get; private set; }
 
+
     protected virtual void Awake()
     {
         EntityData = GetComponent<EntityData>();
         EntityExecutor = GetComponent<EntityExecutor>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         var vec3Pos = transform.position;
         SnapToPosition(Vector2Int.RoundToInt(vec3Pos));
 
+        if (!addToMapAndTurnManagerOnStart) return;
         MapManager.Instance.AddEntity(this);
-
-      
+        TurnManager.Instance.MoveToMapOrder(this.EntityExecutor, true);
     }
 
     public bool IsEaten => BellyIndex.HasValue;
 
     public virtual bool TryMoveTo(Vector2Int position)
     {
+        if (position == MapPosition) return false;
+
         // check that space is free
         var mapManager = MapManager.Instance;
         if (mapManager.IsWallAtPosition(position)) return false;
@@ -69,7 +75,7 @@ public class EntityTransform : MonoBehaviour
         return TryMoveTo(movement + MapPosition);
     }
 
-    public void FaceInDirection(FaceDirection direction)
+    public virtual void FaceInDirection(FaceDirection direction)
     {
         Direction = direction;
         if (RotateSprite)
@@ -85,6 +91,7 @@ public class EntityTransform : MonoBehaviour
         if (!IsEaten)
         {
             transform.position = new Vector3(MapPosition.x, MapPosition.y, 0f);
+            MapManager.Instance.AddEntity(this);
         }
     }
 
@@ -95,6 +102,7 @@ public class EntityTransform : MonoBehaviour
 
         BellyIndex = null;
         MapPosition = position;
+        MapManager.Instance.AddEntity(this);
 
         FaceInDirection(direction);
         StartCoroutine(RegurgitateScaleCo(mouthPos));

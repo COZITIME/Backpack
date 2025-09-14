@@ -124,4 +124,14 @@ public class TurnManager : MonoBehaviour
         if (inBelly) result.AddRange(_entitiesInBelly);
         return result;
     }
+
+    public void Replace(bool isBelly, EntityExecutor newEntity, EntityExecutor oldEntity)
+    {
+        if (_entitiesOnMap.Contains(newEntity)) _entitiesOnMap.Remove(newEntity);
+        if (_entitiesInBelly.Contains(newEntity)) _entitiesInBelly.Remove(newEntity);
+        List<EntityExecutor> List() => isBelly ? _entitiesInBelly : _entitiesOnMap;
+
+        var oldIndex = (List().Contains(oldEntity)) ? List().IndexOf(oldEntity) : List().Count;
+        List().Insert(oldIndex, newEntity);
+    }
 }

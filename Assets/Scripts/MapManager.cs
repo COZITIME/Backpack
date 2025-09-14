@@ -24,11 +24,13 @@ public class MapManager : MonoBehaviour
 
     public void AddEntity(EntityTransform entityTransform)
     {
+        if (_entities.Contains(entityTransform)) return;
         _entities.Add(entityTransform);
     }
 
     public void RemoveEntity(EntityTransform entityTransform)
     {
+        if (!_entities.Contains(entityTransform)) return;
         _entities.Remove(entityTransform);
     }
 
@@ -49,11 +51,12 @@ public class MapManager : MonoBehaviour
         {
             if (IsWallAtPosition(position)) return false;
         }
+
         if (avoidEntities)
         {
             if (GetEntitiesAtPosition(position).Count > 0) return false;
         }
-        
+
         return true;
     }
 }

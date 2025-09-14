@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+[RequireComponent(typeof(PlayerArtHandler))]
 public class PlayerInputHandler : MonoBehaviour
 {
     [FormerlySerializedAs("player")]
@@ -9,9 +11,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private PlayerInputActions _inputActions;
 
-    private FaceDirection _forwards = FaceDirection.Up;
+    private FaceDirection _forwards = FaceDirection.Down;
     private Vector2Int _faceInput;
-
 
     private Coroutine _releaseCoroutine;
 
@@ -22,7 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         _inputActions.Gameplay.Face.performed += OnFace;
         _inputActions.Gameplay.Face.canceled += OnFaceCanceled;
-        _inputActions.Gameplay.Step.performed += OnStep;
+        _inputActions.Gameplay.Step.canceled += OnStep;
     }
 
     private void OnDestroy()
@@ -49,7 +50,7 @@ public class PlayerInputHandler : MonoBehaviour
                 StopCoroutine(_releaseCoroutine);
             }
 
-            _releaseCoroutine = this.ExecuteDelayedRealtime(0.02f, () => { ApplyFacing(input); });
+            _releaseCoroutine = this.ExecuteDelayedRealtime(0.05f, () => { ApplyFacing(input); });
         }
         else
         {
@@ -64,12 +65,13 @@ public class PlayerInputHandler : MonoBehaviour
             StopCoroutine(_releaseCoroutine);
         }
 
+        playerTransform.TryTranslate(_forwards.FaceDirectionToDirection());
         _faceInput = Vector2Int.zero;
     }
 
     private void ApplyFacing(Vector2Int dir)
     {
-        _forwards = dir.DirectionToFaceDirection();
+        if (dir != Vector2Int.zero) _forwards = dir.DirectionToFaceDirection();
         _faceInput = dir;
         playerTransform.FaceInDirection(_forwards);
     }
@@ -77,10 +79,14 @@ public class PlayerInputHandler : MonoBehaviour
     // -------- Stepping --------
     private void OnStep(InputAction.CallbackContext ctx)
     {
-        int sign = Mathf.RoundToInt(ctx.ReadValue<float>());
-        if (sign == 0) return;
+        PlayerTransform.Instance.DoNothingTurn();
 
-        var dir = (sign >= 0) ? _forwards : _forwards.ToOpposite();
-        playerTransform.TryTranslate(dir.FaceDirectionToDirection());
+        // int sign = Mathf.RoundToInt(ctx.ReadValue<float>());
+        // if (sign == 0) return;
+        //
+        // var dir = (sign >= 0) ? _forwards : _forwards.ToOpposite();
+        // playerTransform.TryTranslate(dir.FaceDirectionToDirection());
+        //
+        // _playerArtHandler.SetSprite(_forwards, false);
     }
 }

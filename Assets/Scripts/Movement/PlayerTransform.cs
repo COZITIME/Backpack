@@ -1,10 +1,15 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerTransform : EntityTransform
 {
     public static PlayerTransform Instance { get; private set; }
+
+
+    private PlayerArtHandler _playerArtHandler;
+
 
     private bool _isAwaitingInput;
 
@@ -14,6 +19,15 @@ public class PlayerTransform : EntityTransform
     {
         base.Awake();
         Instance = this;
+        _playerArtHandler = GetComponent<PlayerArtHandler>();
+        _playerArtHandler.SetSprite(FaceDirection.Down, false);
+    }
+
+    public void DoNothingTurn()
+    {
+        if (!_isAwaitingInput) return;
+        DidEat = false;
+        _isAwaitingInput = false;
     }
 
     public override bool TryMoveTo(Vector2Int position)
@@ -61,21 +75,25 @@ public class PlayerTransform : EntityTransform
         if (!didMove) return false;
 
         var vomitDirection = Direction.ToOpposite();
-        bool isRegurgitating = position == oldPosition + vomitDirection.FaceDirectionToDirection();
-        if (isRegurgitating)
+
+        if (BellyManager.Instance.PlayerBelly.TryRegurgitate(position, oldPosition, vomitDirection,
+                out var entityVomit))
         {
-            if (BellyManager.Instance.PlayerBelly.TryRegurgitate(position, oldPosition, vomitDirection,
-                    out var entityVomit))
-            {
-                SoundManager.Instance.Play(SoundType.PlayerRegurgitate);
-            }
+            SoundManager.Instance.Play(SoundType.PlayerRegurgitate);
         }
+
 
         _isAwaitingInput = false;
         return true;
     }
 
-    protected override bool RotateSprite => true;
+    public override void FaceInDirection(FaceDirection direction)
+    {
+        base.FaceInDirection(direction);
+        bool isEating = MapManager.Instance.GetEntitiesAtPosition(MapPosition + direction.FaceDirectionToDirection())
+            .Any();
+        _playerArtHandler.SetSprite(Direction, isEating);
+    }
 
 
     public IEnumerator AwaitInputCoroutine()

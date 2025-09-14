@@ -15,6 +15,12 @@ public class WalkingEnemyExecutor : EntityExecutor
 
     public override IEnumerator ExecuteMovementCoroutine()
     {
+        if (IsMovementStunned)
+        {
+            yield return StartMovementStunCoroutine(-1, true);
+            yield break;
+        }
+
         if (Data.Traits.HasFlag(Trait.Melee) && !PlayerTransform.Instance.EntityData.IsDead)
         {
             bool isBesidePlayer =
@@ -39,9 +45,10 @@ public class WalkingEnemyExecutor : EntityExecutor
         var playerPosition = PlayerTransform.Instance.MapPosition;
         var damagePosition = Vector2.Lerp(startPosition, playerPosition, 0.4f);
 
-        yield return EntityCoroutines.MoveToPositionCoroutine(EntityTransform.transform, 0.1f, startPosition, damagePosition);
+        yield return EntityCoroutines.MoveToPositionCoroutine(EntityTransform.transform, 0.1f, startPosition,
+            damagePosition);
         yield return PlayerTransform.Instance.EntityData.Damage(damage);
-        yield return  EntityCoroutines.MoveToPositionCoroutine(EntityTransform.transform, 0.1f, transform.position, startPosition);
-
+        yield return EntityCoroutines.MoveToPositionCoroutine(EntityTransform.transform, 0.1f, transform.position,
+            startPosition);
     }
 }

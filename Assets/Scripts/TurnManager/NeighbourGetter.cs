@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class NeighbourGetter
 {
-    public static List<EntityTransform> GetNeighboursInDistance(EntityTransform self, int distance)
+    public static List<EntityTransform> GetNeighboursInDistance(EntityTransform self, float distance)
     {
         // belly distance 
         if (self.IsEaten)

@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Linq;
-using Cozi.Random;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -20,8 +18,6 @@ public class EnemySpawnManager : MonoBehaviour
     private AnimationCurve durationToSpawnOverProgressionCurve =
         new AnimationCurve(new Keyframe(0, 4), new Keyframe(200, 0.8f));
 
-    [SerializeField]
-    protected RandomWeightedCollection<Transform> spawnPoints;
 
     private int turnCountDown = 0;
 
@@ -36,11 +32,6 @@ public class EnemySpawnManager : MonoBehaviour
         _nextWait = GetWait(0f);
     }
 
-    [Button]
-    private void GetSpawnsFromChildren()
-    {
-        spawnPoints = new RandomWeightedCollection<Transform>(GetComponentsInChildren<Transform>().ToList());
-    }
 
     private float GetWait(float t) => durationToSpawnOverProgressionCurve.Evaluate(t);
 
@@ -69,20 +60,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public void Spawn()
     {
-        var sp = GetSpawnPoint();
         var prefab = getter.GetEntity();
-        var newEntity = Instantiate(prefab, (Vector2)sp, Quaternion.identity);
-        
-        newEntity.EntityTransform.SnapToPosition(sp);
-        TurnManager.Instance.MoveToMapOrder(newEntity.Executor);
-    }
-
-
-    private Vector2Int GetSpawnPoint()
-    {
-        var spawn = spawnPoints.GetRandomItem
-            (sp => MapManager.Instance.IsFree(Vector2Int.RoundToInt(sp.position)));
-
-        return Vector2Int.RoundToInt(spawn.position);
+        SpawnManager.Instance.Spawn(prefab);
     }
 }
