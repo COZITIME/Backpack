@@ -1242,6 +1242,30 @@ PrefabInstance:
       propertyPath: bellyText
       value: 
       objectReference: {fileID: 481330452}
+    - target: {fileID: 8705936656578476940, guid: fe141c60f5d0143e0a86764a4c80c59b, type: 3}
+      propertyPath: particleSystemPrefabs.m_Keys.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705936656578476940, guid: fe141c60f5d0143e0a86764a4c80c59b, type: 3}
+      propertyPath: particleSystemPrefabs.m_Values.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705936656578476940, guid: fe141c60f5d0143e0a86764a4c80c59b, type: 3}
+      propertyPath: 'particleSystemPrefabs.m_Keys.Array.data[4]'
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705936656578476940, guid: fe141c60f5d0143e0a86764a4c80c59b, type: 3}
+      propertyPath: 'particleSystemPrefabs.m_Keys.Array.data[5]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705936656578476940, guid: fe141c60f5d0143e0a86764a4c80c59b, type: 3}
+      propertyPath: 'particleSystemPrefabs.m_Values.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7799076972108770793, guid: 9b27ef54e0ce98144af8e66a1ae4f5a4, type: 3}
+    - target: {fileID: 8705936656578476940, guid: fe141c60f5d0143e0a86764a4c80c59b, type: 3}
+      propertyPath: 'particleSystemPrefabs.m_Values.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7799076972108770793, guid: d9cf20f6ce15b714aa0720643cd53834, type: 3}
     - target: {fileID: 8997989593638489401, guid: fe141c60f5d0143e0a86764a4c80c59b, type: 3}
       propertyPath: canvasRect
       value: 
