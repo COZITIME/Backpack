@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Morsel
       objectReference: {fileID: 0}
+    - target: {fileID: 8308157271829875159, guid: 3ea856431089f47878f93e1671a1d647, type: 3}
+      propertyPath: hurtParticles
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308157271829875159, guid: 3ea856431089f47878f93e1671a1d647, type: 3}
+      propertyPath: killedParticles
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8893916852535163712, guid: 3ea856431089f47878f93e1671a1d647, type: 3}
       propertyPath: description
       value: 'Gives 1 sustenance. '

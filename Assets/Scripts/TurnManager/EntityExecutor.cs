@@ -31,6 +31,13 @@ public class EntityExecutor : MonoBehaviour
     [SerializeField]
     private SoundType regurgitateSound = SoundType.EnemyDied;
 
+    [SerializeField]
+    private ParticleType hurtParticles = ParticleType.EnemyHurt;
+
+    [SerializeField]
+    private ParticleType killedParticles = ParticleType.EnemyKilled;
+
+
     public int MovementStun = 0;
 
     protected virtual void Awake()
@@ -116,7 +123,10 @@ public class EntityExecutor : MonoBehaviour
     public virtual IEnumerator OnKilledCoroutine()
     {
         this.DOKill(false);
-        Sprite.DOColor(Color.red, 0.2f);
+        Sprite.DOColor(Color.red, 0.3f);
+
+        ParticleManager.Instance.PlayParticles(killedParticles, EntityTransform.GetParticlePosition());
+
 
         StartCoroutine(EntityCoroutines.ScaleToCoroutine(transform, .5f, transform.localScale, Vector3.zero));
 
@@ -124,6 +134,7 @@ public class EntityExecutor : MonoBehaviour
         {
             yield return ExplodeCoroutine();
         }
+
 
         yield return null;
     }
@@ -133,6 +144,9 @@ public class EntityExecutor : MonoBehaviour
         this.DOKill(false);
         var colourTween = Sprite.DOColor(Color.red, 0.2f);
         colourTween.onComplete += () => colourTween.Rewind();
+
+        var particles = ParticleManager.Instance.PlayParticles(hurtParticles, EntityTransform.GetParticlePosition());
+        particles.transform.SetParent(transform);
 
         SoundManager.Instance.Play(hurtSound);
 
@@ -147,7 +161,7 @@ public class EntityExecutor : MonoBehaviour
 
         if (!IsMovementStunned && traitFlags.HasFlag(Trait.Burner))
         {
-            ParticleManager.Instance.PlayParticles(ParticleType.BurnSmall, transform.position);
+            ParticleManager.Instance.PlayParticles(ParticleType.BurnSmall, EntityTransform.GetParticlePosition());
             var neighbours = NeighbourGetter.GetNeighboursInDistance(EntityTransform, 1.5f);
             foreach (var neighbour in neighbours)
             {
@@ -176,7 +190,7 @@ public class EntityExecutor : MonoBehaviour
     public virtual IEnumerator BurnEntity(EntityData enemy)
     {
         if (enemy.IsInvincible) yield break;
-        var part = ParticleManager.Instance.PlayParticles(ParticleType.Burn, transform.position);
+        var part = ParticleManager.Instance.PlayParticles(ParticleType.Burn, EntityTransform.GetParticlePosition());
         yield return part.transform.DOMove(enemy.transform.position, .2f);
         SoundManager.Instance.Play(hurtSound);
         yield return enemy.Damage(damage);
@@ -184,7 +198,7 @@ public class EntityExecutor : MonoBehaviour
 
     private IEnumerator ExplodeCoroutine()
     {
-        ParticleManager.Instance.PlayParticles(ParticleType.Explode, EntityTransform.transform.position);
+        ParticleManager.Instance.PlayParticles(ParticleType.Explode, EntityTransform.GetParticlePosition());
         SoundManager.Instance.Play(deathSound);
         var neighbours = NeighbourGetter.GetNeighboursInDistance(EntityTransform, 2);
         foreach (var neighbour in neighbours)

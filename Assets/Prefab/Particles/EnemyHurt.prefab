@@ -41,7 +41,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6607516614693520959}
   serializedVersion: 8
-  lengthInSec: 1.7
+  lengthInSec: 1
   simulationSpeed: 7.1
   stopAction: 0
   cullingMode: 0
@@ -915,7 +915,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 12.3
+      scalar: 7.46
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4903,7 +4903,7 @@ ParticleSystemRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: -1
   m_RenderMode: 5
   m_MeshDistribution: 0
   m_SortMode: 0

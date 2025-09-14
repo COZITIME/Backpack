@@ -20,6 +20,7 @@ public class EntityTransform : MonoBehaviour
 
     private Coroutine _movementCoroutine;
 
+    private Vector2 _lastStomachPosition;
 
     public EntityData EntityData { get; private set; }
     public EntityExecutor EntityExecutor { get; private set; }
@@ -121,6 +122,7 @@ public class EntityTransform : MonoBehaviour
 
     public void SetBellyPosition(int index, Vector2 bellyPosition)
     {
+        _lastStomachPosition = bellyPosition;
         var isAlreadyEaten = IsEaten;
         BellyIndex = index;
 
@@ -160,5 +162,11 @@ public class EntityTransform : MonoBehaviour
     {
         yield return EntityCoroutines.ScaleToCoroutine(transform, .1f, transform.localScale, Vector3.one * 1.1f);
         yield return EntityCoroutines.ScaleToCoroutine(transform, .1f, transform.localScale, Vector3.one);
+    }
+
+    public Vector2 GetParticlePosition()
+    {
+        if (IsEaten) return _lastStomachPosition;
+        return MapPosition;
     }
 }

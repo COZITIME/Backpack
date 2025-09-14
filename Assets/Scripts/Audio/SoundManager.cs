@@ -1,6 +1,8 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Random = UnityEngine.Random;
 
 public class SoundManager : MonoBehaviour
 {
@@ -37,5 +39,15 @@ public class SoundManager : MonoBehaviour
             _sourceIndex++;
             _sourceIndex = _sourceIndex % audioSource.Length;
         }
+    }
+
+    public void Play(AudioClip clip)
+    {
+        if (!clip) return;
+
+        audioSource[_sourceIndex].pitch = Random.Range(0.8f, 1.2f);
+        audioSource[_sourceIndex].PlayOneShot(clip);
+        _sourceIndex++;
+        _sourceIndex = _sourceIndex % audioSource.Length;
     }
 }

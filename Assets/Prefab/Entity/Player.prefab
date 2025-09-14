@@ -140,6 +140,10 @@ MonoBehaviour:
   damage: 1
   hurtSound: 2
   deathSound: 3
+  eatSound: 0
+  regurgitateSound: 1
+  hurtParticles: 5
+  killedParticles: 6
   MovementStun: 0
 --- !u!114 &4709850547407560754
 MonoBehaviour:
@@ -212,7 +216,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.055, y: 1.295}
+    oldSize: {x: 1.37, y: 0.86333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

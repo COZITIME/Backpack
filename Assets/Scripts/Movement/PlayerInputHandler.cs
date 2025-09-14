@@ -21,9 +21,9 @@ public class PlayerInputHandler : MonoBehaviour
         _inputActions = new PlayerInputActions();
         _inputActions.Enable();
 
-        _inputActions.Gameplay.Face.performed += OnFace;
-        _inputActions.Gameplay.Face.canceled += OnFaceCanceled;
-        _inputActions.Gameplay.Step.canceled += OnStep;
+        _inputActions.Gameplay.Move.performed += OnMove;
+        _inputActions.Gameplay.Move.canceled += OnFaceCanceled;
+        _inputActions.Gameplay.Wait.canceled += OnWait;
     }
 
     private void OnDestroy()
@@ -33,7 +33,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
     // -------- Facing --------
-    private void OnFace(InputAction.CallbackContext btn)
+    private void OnMove(InputAction.CallbackContext btn)
     {
         var input = Vector2Int.RoundToInt(btn.ReadValue<Vector2>());
 
@@ -77,16 +77,8 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
     // -------- Stepping --------
-    private void OnStep(InputAction.CallbackContext ctx)
+    private void OnWait(InputAction.CallbackContext ctx)
     {
         PlayerTransform.Instance.DoNothingTurn();
-
-        // int sign = Mathf.RoundToInt(ctx.ReadValue<float>());
-        // if (sign == 0) return;
-        //
-        // var dir = (sign >= 0) ? _forwards : _forwards.ToOpposite();
-        // playerTransform.TryTranslate(dir.FaceDirectionToDirection());
-        //
-        // _playerArtHandler.SetSprite(_forwards, false);
     }
 }

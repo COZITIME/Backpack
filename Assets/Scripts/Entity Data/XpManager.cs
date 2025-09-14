@@ -8,8 +8,8 @@ using DG.Tweening; // ← Make sure you have DOTween installed
 public class XpManager : MonoBehaviour
 {
     public static XpManager Instance { get; private set; }
-    
-    public  event Action<int> OnLevelUp;
+
+    public event Action<int> OnLevelUp;
 
     [BoxGroup("UI"), SerializeField]
     private Image xpBar;
@@ -23,9 +23,12 @@ public class XpManager : MonoBehaviour
     [BoxGroup("Xp"), SerializeField]
     private int xpIncreaseAtNextLevel = 2; // How much more each level costs
 
+    [SerializeField]
+    private AudioClip levelUpSound;
+    
 
     public int Xp => _xp;
-    
+
     private int _xp;
     private int _level;
 
@@ -64,6 +67,8 @@ public class XpManager : MonoBehaviour
             levelText.transform
                 .DOScale(1.3f, 0.15f)
                 .SetLoops(2, LoopType.Yoyo);
+            
+            SoundManager.Instance.Play(levelUpSound);
         }
     }
 

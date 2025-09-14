@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Serialization;
 
 public class ParticleManager : MonoBehaviour
 {
@@ -17,6 +15,11 @@ public class ParticleManager : MonoBehaviour
 
     public ParticleSystem PlayParticles(ParticleType particleType, Vector2 position)
     {
+        if (particleType == ParticleType.None)
+        {
+            return null;
+        }
+
         var particles = Instantiate(particleSystemPrefabs[particleType], position, Quaternion.identity, transform);
         particles.Play();
         Destroy(particles.gameObject, particles.main.duration + .5f);
