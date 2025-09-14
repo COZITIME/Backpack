@@ -12,4 +12,5 @@ public enum SoundType
     RegurgitateRelic,
     EatMorsel,
     RegurgitateMorsel,
+    BellyFull,
 }

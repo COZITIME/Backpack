@@ -204,4 +204,6 @@ MonoBehaviour:
   damage: 1
   hurtSound: 5
   deathSound: 6
+  eatSound: 8
+  regurgitateSound: 9
   MovementStun: 0

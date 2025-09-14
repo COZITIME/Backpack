@@ -92,7 +92,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5387895890754584258
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entity
   movementDuration: 0.2
   canBeEaten: 1
+  addToMapAndTurnManagerOnStart: 0
 --- !u!114 &6490121654079454348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +142,7 @@ MonoBehaviour:
   maxHealth: 4
   morselSustenance: 1
   morselHealth: 0
+  RelicType: 2
 --- !u!61 &4011062121111760986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,4 +204,6 @@ MonoBehaviour:
   damage: 1
   hurtSound: 5
   deathSound: 6
+  eatSound: 10
+  regurgitateSound: 11
   MovementStun: 0

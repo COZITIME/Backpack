@@ -26,6 +26,7 @@ public class Belly
     }
 
     public List<EntityTransform> GetEntitiesWithin => _entitiesInBelly;
+    public bool IsFull => _entitiesInBelly.Count >= BellySize;
 
 
     public bool TryEat(EntityTransform entityTransform)
@@ -84,7 +85,7 @@ public class Belly
         return true;
     }
 
-    private void Reposition() 
+    private void Reposition()
     {
         var count = _entitiesInBelly.Count;
         for (var index = 0; index < count; index++)
