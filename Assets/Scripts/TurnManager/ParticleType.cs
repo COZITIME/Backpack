@@ -4,4 +4,6 @@ public enum ParticleType
     Burn,
     BurnSmall,
     Vomit,
+    PlayerHurt,
+    EnemyHurt
 }
