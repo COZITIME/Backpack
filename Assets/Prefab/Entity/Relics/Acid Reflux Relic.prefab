@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893916852535163712, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: RelicType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8893916852535163712, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: entityName

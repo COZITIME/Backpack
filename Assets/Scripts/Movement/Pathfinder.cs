@@ -28,8 +28,8 @@ public static class Pathfinder
         while (queue.Count > 0)
         {
             var next = queue.Dequeue();
-
             var neighbours = GetNeighbors(next.Position);
+
             foreach (var neighbour in neighbours)
             {
                 if (neighbour == end)
@@ -38,8 +38,8 @@ public static class Pathfinder
                     return targetNode.ToPathList();
                 }
 
-                if (alreadyLookedAt.Contains(neighbour) ||
-                    !MapManager.Instance.IsFree(neighbour, avoidWalls, avoidOtherEntities))
+                if (!alreadyLookedAt.Add(neighbour)) continue;
+                if (!MapManager.Instance.IsFree(neighbour, avoidWalls, avoidOtherEntities))
                 {
                     continue;
                 }

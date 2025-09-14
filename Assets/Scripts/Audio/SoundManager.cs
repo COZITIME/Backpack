@@ -19,7 +19,6 @@ public class SoundManager : MonoBehaviour
         Instance = this;
     }
 
-
     private void OnValidate()
     {
         if (audioSource == null || audioSource.Length == 0)
@@ -27,14 +26,16 @@ public class SoundManager : MonoBehaviour
             audioSource = GetComponentsInChildren<AudioSource>();
         }
     }
-    
+
     public void Play(SoundType sound)
     {
-        var clip = sounds[sound].AudioClip;
-        audioSource[_sourceIndex].pitch = Random.Range(0.8f, 1.2f);
-        audioSource[_sourceIndex].PlayOneShot(clip);
+        if (sounds.TryGetValue(sound, out var clip))
+        {
+            audioSource[_sourceIndex].pitch = Random.Range(0.8f, 1.2f);
+            audioSource[_sourceIndex].PlayOneShot(clip.AudioClip);
 
-        _sourceIndex++;
-        _sourceIndex = _sourceIndex % audioSource.Length;
+            _sourceIndex++;
+            _sourceIndex = _sourceIndex % audioSource.Length;
+        }
     }
 }

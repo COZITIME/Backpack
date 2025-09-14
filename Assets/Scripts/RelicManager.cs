@@ -43,7 +43,7 @@ public class RelicManager : MonoBehaviour
 
     public int GetRelicCount(RelicType entityDataRelicType)
     {
-        return _relicCounts.TryGetValue(entityDataRelicType, out int count) ? count : 0;
+        return _relicCounts.GetValueOrDefault(entityDataRelicType, 0);
     }
 
     private void OnRelicCountChange(RelicType relicType, int count)

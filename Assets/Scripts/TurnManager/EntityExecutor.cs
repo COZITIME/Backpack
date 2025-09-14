@@ -25,6 +25,12 @@ public class EntityExecutor : MonoBehaviour
     [SerializeField]
     private SoundType deathSound = SoundType.EnemyDied;
 
+    [SerializeField]
+    private SoundType eatSound = SoundType.EatEnemy;
+
+    [SerializeField]
+    private SoundType regurgitateSound = SoundType.EnemyDied;
+
     public int MovementStun = 0;
 
     protected virtual void Awake()
@@ -92,6 +98,8 @@ public class EntityExecutor : MonoBehaviour
         {
             yield return Data.Damage(d);
         }
+
+        SoundManager.Instance.Play(eatSound);
     }
 
     public virtual IEnumerator OnRegurgitatedCoroutine()
@@ -101,6 +109,8 @@ public class EntityExecutor : MonoBehaviour
         {
             yield return Data.Damage(d);
         }
+
+        SoundManager.Instance.Play(regurgitateSound);
     }
 
     public virtual IEnumerator OnKilledCoroutine()

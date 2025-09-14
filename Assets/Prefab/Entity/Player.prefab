@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 89cfcf5f59dd64777a8863758d90b6a4, type: 3}
+  m_Sprite: {fileID: -807380628, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   movementDuration: 0.2
   canBeEaten: 1
-  addToMapAndTurnManagerOnStart: 0
+  addToMapAndTurnManagerOnStart: 1
 --- !u!114 &2569549342197995069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ec80aa46b74e0286a1ddc80dd37cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityData
-  entityName: 
+  entityName: Player
   nameColour: {r: 0, g: 0.3921569, b: 0, a: 1}
-  description: 
-  traits: 1
+  description: Have you got the guts?
+  traits: 0
   maxHealth: 4
   morselSustenance: 1
   morselHealth: 0
@@ -212,7 +212,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.055, y: 1.295}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -233,25 +233,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerArtHandler
   arts:
-    m_Keys: 000000000100000003000000020000000400000006000000
+    m_Keys: 0000000001000000030000000200000004000000060000000700000005000000
     m_Values:
-    - eatSprite: {fileID: 759265185, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
-      regurgitateSprite: {fileID: 1658097683, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
+    - eatSprite: {fileID: -859547569, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+      regurgitateSprite: {fileID: -371517454, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
       flipX: 0
-    - eatSprite: {fileID: -1216290297, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
-      regurgitateSprite: {fileID: 1981338896, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+    - eatSprite: {fileID: -807380628, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+      regurgitateSprite: {fileID: 1357937620, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
       flipX: 0
-    - eatSprite: {fileID: 19667055, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
-      regurgitateSprite: {fileID: -1486616373, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
+    - eatSprite: {fileID: -1329771119, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+      regurgitateSprite: {fileID: 1026573979, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
       flipX: 0
-    - eatSprite: {fileID: 19667055, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
-      regurgitateSprite: {fileID: -1486616373, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
+    - eatSprite: {fileID: -1329771119, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+      regurgitateSprite: {fileID: 1026573979, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
       flipX: 1
-    - eatSprite: {fileID: 1648074859, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
-      regurgitateSprite: {fileID: 1200086809, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+    - eatSprite: {fileID: 2033378194, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+      regurgitateSprite: {fileID: -834672304, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
       flipX: 0
-    - eatSprite: {fileID: 1200086809, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
-      regurgitateSprite: {fileID: 1648074859, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
+    - eatSprite: {fileID: 2033378194, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+      regurgitateSprite: {fileID: -834672304, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
+      flipX: 1
+    - eatSprite: {fileID: -274273585, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+      regurgitateSprite: {fileID: 436059160, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
+      flipX: 0
+    - eatSprite: {fileID: -274273585, guid: 3d1cfd6784486411c8f102487bebe75f, type: 3}
+      regurgitateSprite: {fileID: 436059160, guid: 9615abbe5027d4fe8aefe1448d652aca, type: 3}
       flipX: 1
   failSprite: {fileID: 403649015244102935, guid: 04c70fcbbb7104f6a8178588e7d72b66, type: 3}
   spriteRenderer: {fileID: 6081821007232032892}

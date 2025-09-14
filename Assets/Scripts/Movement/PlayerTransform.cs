@@ -59,14 +59,14 @@ public class PlayerTransform : EntityTransform
                     if (didEat)
                     {
                         DidEat = true;
-                        SoundManager.Instance.Play(SoundType.PlayerEat);
+                        SoundManager.Instance.Play(SoundType.EatEnemy);
                     }
 
                     return base.TryMoveTo(position); // gtfo
                 }
             }
 
-            _isAwaitingInput = false;
+            _isAwaitingInput = !DidEat;
             return false;
         }
 
@@ -76,11 +76,7 @@ public class PlayerTransform : EntityTransform
 
         var vomitDirection = Direction.ToOpposite();
 
-        if (BellyManager.Instance.PlayerBelly.TryRegurgitate(position, oldPosition, vomitDirection,
-                out var entityVomit))
-        {
-            SoundManager.Instance.Play(SoundType.PlayerRegurgitate);
-        }
+        BellyManager.Instance.PlayerBelly.TryRegurgitate(position, oldPosition, vomitDirection, out var entityVomit);
 
 
         _isAwaitingInput = false;
