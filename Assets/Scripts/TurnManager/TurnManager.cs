@@ -21,12 +21,12 @@ public class TurnManager : MonoBehaviour
     private AnimationCurve sizeToSpeedCurve =
         new AnimationCurve(new Keyframe(0, 0), new Keyframe(10, 2), new Keyframe(30, 4));
 
-
     private bool isGameOver = false;
 
     private readonly List<EntityExecutor> _entitiesOnMap = new List<EntityExecutor>();
     private readonly List<EntityExecutor> _entitiesInBelly = new List<EntityExecutor>();
 
+    private bool _isPaused = false;
 
     private void Awake()
     {
@@ -86,7 +86,11 @@ public class TurnManager : MonoBehaviour
                 if (!entity || entity.Data.IsRelic) continue;
                 StartCoroutine(entity.ExecuteInsideBellyEffectCoroutine());
                 yield return waitForBellyDelay;
+
+                yield return new WaitWhile(() => _isPaused);
             }
+
+            yield return new WaitWhile(() => _isPaused);
 
             yield return null;
 
@@ -103,12 +107,14 @@ public class TurnManager : MonoBehaviour
                     yield return entity.ExecuteMovementCoroutine();
                 }
 
+                yield return new WaitWhile(() => _isPaused);
+
                 yield return waitForMapDelay;
 
                 // if we are a player and ate skip turns
                 if (entity.EntityTransform is PlayerTransform playerTransform)
                 {
-                    if (playerTransform.DidEat)
+                    if (playerTransform.GetExtraTurn)
                     {
                         break;
                     }
@@ -144,5 +150,10 @@ public class TurnManager : MonoBehaviour
 
         var oldIndex = (List().Contains(oldEntity)) ? List().IndexOf(oldEntity) : List().Count;
         List().Insert(oldIndex, newEntity);
+    }
+
+    public void SetIsPaused(bool isPaused)
+    {
+        _isPaused = isPaused;
     }
 }

@@ -45,6 +45,8 @@ public class MapManager : MonoBehaviour
         return wallMap.GetTile(gridPos);
     }
 
+ 
+
     public bool IsFree(Vector2Int position, bool avoidWalls = true, bool avoidEntities = true)
     {
         if (avoidWalls)

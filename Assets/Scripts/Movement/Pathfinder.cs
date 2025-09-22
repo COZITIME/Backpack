@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -8,17 +9,17 @@ public static class Pathfinder
 
     public static List<Vector2Int> GetPathToEntity(
         EntityTransform myTransform,
-        PlayerTransform targetTransform,
+        Predicate<Vector2Int> legalDestination,
         bool avoidWalls = true,
         bool avoidOtherEntities = true)
     {
         Vector2Int start = myTransform.MapPosition;
-        Vector2Int end = targetTransform.MapPosition;
 
-        return FindPath(start, end, avoidWalls, avoidOtherEntities);
+        return FindPath(start, legalDestination, avoidWalls, avoidOtherEntities);
     }
 
-    private static List<Vector2Int> FindPath(Vector2Int start, Vector2Int end, bool avoidWalls, bool avoidOtherEntities)
+    private static List<Vector2Int> FindPath(Vector2Int start, Predicate<Vector2Int> legalDestination, bool avoidWalls,
+        bool avoidOtherEntities)
     {
         Queue<Node> queue = new();
         queue.Enqueue(new Node(start, null));
@@ -32,9 +33,9 @@ public static class Pathfinder
 
             foreach (var neighbour in neighbours)
             {
-                if (neighbour == end)
+                if (legalDestination(neighbour))
                 {
-                    var targetNode = new Node(end, next);
+                    var targetNode = new Node(neighbour, next);
                     return targetNode.ToPathList();
                 }
 
@@ -82,17 +83,30 @@ public static class Pathfinder
         }
     }
 
-    public static bool TryGetFirstStep(EntityTransform myTransform, PlayerTransform targetTransform,
+
+    public static bool TryGetFirstStep(EntityTransform myTransform, Predicate<Vector2Int> legalTarget,
         out Vector2Int firstStep, bool avoidWalls = true, bool avoidOtherEntities = true)
     {
         firstStep = myTransform.MapPosition;
-        List<Vector2Int> path = GetPathToEntity(myTransform, targetTransform, avoidWalls, avoidOtherEntities);
+        List<Vector2Int> path = GetPathToEntity(myTransform, legalTarget, avoidWalls, avoidOtherEntities);
 
         if (path.Count < 2) // 0 = no path, 1 = start == end
             return false;
 
         firstStep = path[1]; // first step after start
         return true;
+    }
+
+
+    public static bool TryGetFirstStep(EntityTransform myTransform, PlayerTransform targetTransform,
+        out Vector2Int firstStep, bool avoidWalls = true, bool avoidOtherEntities = true)
+    {
+        return TryGetFirstStep(
+            myTransform,
+            (tile) => tile == targetTransform.MapPosition,
+            out firstStep,
+            avoidWalls,
+            avoidOtherEntities);
     }
 
     private static IEnumerable<Vector2Int> GetNeighbors(Vector2Int pos)

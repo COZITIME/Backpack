@@ -30,6 +30,6 @@ public class GameOverManager : MonoBehaviour
         restartButton.onClick.AddListener(() => { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); });
 
         scoreText.text = $"Consumed {XpManager.Instance.Xp}";
-        levelText.text = $"Level {XpManager.Instance.GetLevel()}";
+        levelText.text = $"Level {XpManager.Instance.Level}";
     }
 }

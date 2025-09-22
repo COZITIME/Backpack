@@ -157,9 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ec80aa46b74e0286a1ddc80dd37cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityData
-  entityName: Player
+  entityName: Nibble
   nameColour: {r: 0, g: 0.3921569, b: 0, a: 1}
-  description: Have you got the guts?
+  description: This is you. Have you got the guts?
   traits: 0
   maxHealth: 4
   morselSustenance: 1

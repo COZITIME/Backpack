@@ -47,7 +47,8 @@ public class WalkingEnemyExecutor : EntityExecutor
 
         yield return EntityCoroutines.MoveToPositionCoroutine(EntityTransform.transform, 0.1f, startPosition,
             damagePosition);
-        yield return PlayerTransform.Instance.EntityData.Damage(damage);
+        var realDamage = MouthHelper.GetMouthBlockedDamage(EntityTransform.MapPosition, damage);
+        yield return PlayerTransform.Instance.EntityData.Damage(realDamage);
         yield return EntityCoroutines.MoveToPositionCoroutine(EntityTransform.transform, 0.1f, transform.position,
             startPosition);
     }

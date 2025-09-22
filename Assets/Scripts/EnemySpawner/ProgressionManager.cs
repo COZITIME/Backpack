@@ -11,8 +11,8 @@ public class ProgressionManager : MonoBehaviour
 
     private float _progression;
 
-    public int Level => 0;
-    
+    public int Level => XpManager.Instance.Level;
+
     [ShowInInspector, DisplayAsString]
     public float Progression => _progression;
 
@@ -31,7 +31,6 @@ public class ProgressionManager : MonoBehaviour
     public int GetOtherEntitiesOfKindCount(EntityData entityData)
     {
         // temp using coloured name
-        return TurnManager.Instance.GetEntities()
-            .Count(x => x.Data.ColouredName == entityData.ColouredName);
+        return TurnManager.Instance.GetEntities().Count(x => x.Data.Id == entityData.Id);
     }
 }

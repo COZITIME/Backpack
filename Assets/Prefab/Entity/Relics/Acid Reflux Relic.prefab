@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4011062121111760986, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.87
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 4011062121111760986, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.885
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 6625438118120808265, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 7440582121518310110, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2e66185bce5d5496e98e293fcf2aa50a, type: 3}
+      objectReference: {fileID: 21300000, guid: 7e049a1ce22b44d24921288832a614ae, type: 3}
     - target: {fileID: 7440582121518310110, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -83,9 +83,13 @@ PrefabInstance:
     - target: {fileID: 7440582121518310110, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 385c0743b94e24f02a97edd6665ad02a, type: 2}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7967391054784393792, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: m_Name
+      value: Acid Reflux Relic
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893916852535163712, guid: 3e88728844dd246999ac39123c1974be, type: 3}
+      propertyPath: Id
       value: Acid Reflux Relic
       objectReference: {fileID: 0}
     - target: {fileID: 8893916852535163712, guid: 3e88728844dd246999ac39123c1974be, type: 3}
@@ -98,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893916852535163712, guid: 3e88728844dd246999ac39123c1974be, type: 3}
       propertyPath: description
-      value: Increases Regurgitate Damage by 1
+      value: +1 Regurgitate Damage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

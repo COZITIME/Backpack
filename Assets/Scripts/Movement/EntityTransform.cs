@@ -14,11 +14,13 @@ public class EntityTransform : MonoBehaviour
     private bool addToMapAndTurnManagerOnStart = false;
 
     public Vector2Int MapPosition { get; private set; }
-    public int? BellyIndex { get; private set; }
+    public int? BellyIndex { get; set; }
 
     public FaceDirection Direction { get; private set; }
 
     private Coroutine _movementCoroutine;
+    private Coroutine _eatCoroutine;
+
 
     private Vector2 _lastStomachPosition;
 
@@ -67,6 +69,7 @@ public class EntityTransform : MonoBehaviour
             StopCoroutine(_movementCoroutine);
         }
 
+        ArrowButtonManager.Instance.UpdateButtons();
         _movementCoroutine = StartCoroutine(MoveToPositionAnimationCoroutine());
         return true;
     }
@@ -97,7 +100,7 @@ public class EntityTransform : MonoBehaviour
     }
 
 
-    public void Regurgitate(Vector2Int mouthPos, Vector2Int position, FaceDirection direction)
+    public void Regurgitate(Vector2Int mouthPos, Vector2Int position, FaceDirection moveDirection)
     {
         StopAllCoroutines();
 
@@ -105,7 +108,7 @@ public class EntityTransform : MonoBehaviour
         MapPosition = position;
         MapManager.Instance.AddEntity(this);
 
-        FaceInDirection(direction);
+        FaceInDirection(moveDirection.ToOpposite());
         StartCoroutine(RegurgitateScaleCo(mouthPos));
     }
 
@@ -126,14 +129,14 @@ public class EntityTransform : MonoBehaviour
         var isAlreadyEaten = IsEaten;
         BellyIndex = index;
 
-        if (isAlreadyEaten)
+        if (isAlreadyEaten && _eatCoroutine == null)
         {
             StartCoroutine(
                 EntityCoroutines.MoveToPositionCoroutine(transform, .15f, transform.position, bellyPosition));
         }
         else
         {
-            StartCoroutine(EatCo(bellyPosition));
+            _eatCoroutine = StartCoroutine(EatCo(bellyPosition));
         }
 
         FaceInDirection(FaceDirection.Down); // face down
@@ -145,6 +148,7 @@ public class EntityTransform : MonoBehaviour
         yield return EntityCoroutines.ScaleToCoroutine(transform, .2f, transform.localScale, Vector3.zero);
         transform.position = bellyPosition;
         yield return EntityCoroutines.ScaleToCoroutine(transform, .2f, transform.localScale, Vector3.one);
+        _eatCoroutine = null;
     }
 
     private IEnumerator RegurgitateScaleCo(Vector2Int mouthPos)

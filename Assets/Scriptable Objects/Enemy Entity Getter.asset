@@ -14,31 +14,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RandomEntityGetter
   weightedEntities:
     items:
-    - fraction: 0.3030303
+    - fraction: 0.2898551
       Weight: 1
       Item:
         prefab: {fileID: 1181845890193696185, guid: 8c20198d3d9794d6788599c714f3d162, type: 3}
         minLevelToAppear: 0
         minProgressionToAppear: 0
-        maxOfTypeAtOnce: 2
-    - fraction: 0.3030303
+        maxOfTypeAtOnce: 3
+    - fraction: 0.2898551
       Weight: 1
       Item:
         prefab: {fileID: 2061514634128071981, guid: c3bd8d2f347254234a39d1458641c5a5, type: 3}
         minLevelToAppear: 0
         minProgressionToAppear: 0
-        maxOfTypeAtOnce: 2
-    - fraction: 0.24242425
+        maxOfTypeAtOnce: 3
+    - fraction: 0.23188408
       Weight: 0.8
       Item:
         prefab: {fileID: 2061514634128071981, guid: 31ddd8e33788e46e2be177d135b24fb3, type: 3}
         minLevelToAppear: 0
         minProgressionToAppear: 0
-        maxOfTypeAtOnce: 2
-    - fraction: 0.15151516
-      Weight: 0.5
+        maxOfTypeAtOnce: 3
+    - fraction: 0.08695653
+      Weight: 0.3
       Item:
         prefab: {fileID: 1181845890193696185, guid: f1939f3410ba04ed0bdd341f2e210f6e, type: 3}
-        minLevelToAppear: 0
+        minLevelToAppear: 3
         minProgressionToAppear: 3
         maxOfTypeAtOnce: 2
+    - fraction: 0.05797102
+      Weight: 0.2
+      Item:
+        prefab: {fileID: 1181845890193696185, guid: 3be30f65ef29245e1af494e1f1ab8674, type: 3}
+        minLevelToAppear: 5
+        minProgressionToAppear: 15
+        maxOfTypeAtOnce: 2
+    - fraction: 0.014492755
+      Weight: 0.05
+      Item:
+        prefab: {fileID: 1181845890193696185, guid: a0d2495db27fb45edae5e996b175e928, type: 3}
+        minLevelToAppear: 10
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 1
+    - fraction: 0.014492755
+      Weight: 0.05
+      Item:
+        prefab: {fileID: 2061514634128071981, guid: 67f64475aed8c42a8b8de0c25c5b8c86, type: 3}
+        minLevelToAppear: 10
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 1
+    - fraction: 0.014492755
+      Weight: 0.05
+      Item:
+        prefab: {fileID: 2061514634128071981, guid: 61e2e4b8252314276a76c6645772fd86, type: 3}
+        minLevelToAppear: 10
+        minProgressionToAppear: 0
+        maxOfTypeAtOnce: 1

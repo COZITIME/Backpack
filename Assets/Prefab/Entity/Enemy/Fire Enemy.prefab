@@ -158,6 +158,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5387247738009788458, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387247738009788458, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: Id
+      value: Fire Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: traits
       value: 8
@@ -168,11 +180,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: entityName
-      value: Fire Dude
+      value: Pyroplasms
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: description
-      value: A little spicy
+      value: The Maws fever given form. These fiery creatures burn everything within
+        one tile. When reduced to zero health they collapse into a morsel. Inside
+        the stomach they keep flaring, scorching whatever shares a slot beside them.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

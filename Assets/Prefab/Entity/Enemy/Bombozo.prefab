@@ -162,6 +162,18 @@ PrefabInstance:
       propertyPath: deathSound
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5387247738009788458, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387247738009788458, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: Id
+      value: Bombozo
+      objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: traits
       value: 16
@@ -172,11 +184,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: entityName
-      value: Bombozo
+      value: Boomling
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: description
-      value: Suprisngly umami when it explodes
+      value: Cartoonish black bombs with malicious grins. Boomlings carry a five
+        turn timer. Each turn brings them closer to detonation. When the timer ends
+        they explode, damaging everything within two tiles and leaving behind a morsel.
+        Inside the stomach they tick just the same, destroying whatever they sit
+        beside.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

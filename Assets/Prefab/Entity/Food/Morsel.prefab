@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893916852535163712, guid: 3ea856431089f47878f93e1671a1d647, type: 3}
       propertyPath: description
-      value: 'Gives 1 sustenance. '
+      value: Harmless scraps of half-digested matter. Your only source of experience.
       objectReference: {fileID: 0}
     - target: {fileID: 8893916852535163712, guid: 3ea856431089f47878f93e1671a1d647, type: 3}
       propertyPath: morselHealth

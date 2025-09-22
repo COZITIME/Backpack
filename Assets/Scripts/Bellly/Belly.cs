@@ -27,6 +27,8 @@ public class Belly
 
     public List<EntityTransform> GetEntitiesWithin => _entitiesInBelly;
     public bool IsFull => _entitiesInBelly.Count >= BellySize;
+    public bool HasMorsel => _entitiesInBelly.Any(e => e.EntityData.IsMorsel);
+    public bool IsEmpty => _entitiesInBelly.Count == 0;
 
 
     public bool TryEat(EntityTransform entityTransform)
@@ -92,11 +94,17 @@ public class Belly
         {
             var entity = _entitiesInBelly[index];
             int posIndex = (count - index) - 1;
-            Vector2 position = (Vector2)_bellyTop.position + (Vector2.down * (_spacing * posIndex));
+            var position = GetBellyPosition(posIndex);
             entity.SetBellyPosition(index, position);
         }
 
         OnBellyRepositioning?.Invoke(_entitiesInBelly);
+    }
+
+    public Vector2 GetBellyPosition(int posIndex)
+    {
+        Vector2 position = (Vector2)_bellyTop.position + (Vector2.down * (_spacing * posIndex));
+        return position;
     }
 
     public void Remove(EntityTransform entityTransform)
@@ -107,6 +115,8 @@ public class Belly
 
     public void ReplaceAtIndex(int index, EntityTransform newEntity, EntityTransform old)
     {
+        newEntity.BellyIndex = index;
+        newEntity.transform.position = GetBellyPosition(index);
         if (index > _entitiesInBelly.Count || _entitiesInBelly[index] != old)
         {
             _entitiesInBelly.Insert(index, newEntity);

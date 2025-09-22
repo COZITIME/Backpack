@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6565635508541924787
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 398375613738135212, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_Name
+      value: Chunky Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 517339493570958464, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 517339493570958464, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1674960553, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+    - target: {fileID: 517339493570958464, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 517339493570958464, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 517339493570958464, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 517339493570958464, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 11b415478969443928eafbc002ba95a1, type: 2}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087377135224236691, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: mover
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387247738009788458, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387247738009788458, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: Id
+      value: Chunky Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: traits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: maxHealth
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: entityName
+      value: Sporlong
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: description
+      value: Twice as tanky and prefers longer shots
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: morselHealth
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3894088327236382060, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+    - {fileID: 5087377135224236691, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 398375613738135212, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3815419371581613596}
+    - targetCorrespondingSourceObject: {fileID: 398375613738135212, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 241016823217285546}
+  m_SourcePrefab: {fileID: 100100000, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+--- !u!212 &6642852546975559987 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 517339493570958464, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+  m_PrefabInstance: {fileID: 6565635508541924787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6816904162528135967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 398375613738135212, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+  m_PrefabInstance: {fileID: 6565635508541924787}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3815419371581613596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816904162528135967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c1731d508d04c09ac48fd947e0b81d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DirectionalArtHandler
+  arts:
+    m_Keys: 0000000001000000020000000300000004000000050000000600000007000000
+    m_Values:
+    - eatSprite: {fileID: 1066732843, guid: 050ad1f0049ae411c99e011ad47e8ce0, type: 3}
+      regurgitateSprite: {fileID: 803568350, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+      flipX: 0
+    - eatSprite: {fileID: -1806099097, guid: 050ad1f0049ae411c99e011ad47e8ce0, type: 3}
+      regurgitateSprite: {fileID: -1674960553, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+      flipX: 0
+    - eatSprite: {fileID: 378622674, guid: 050ad1f0049ae411c99e011ad47e8ce0, type: 3}
+      regurgitateSprite: {fileID: -999328570, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+      flipX: 1
+    - eatSprite: {fileID: 378622674, guid: 050ad1f0049ae411c99e011ad47e8ce0, type: 3}
+      regurgitateSprite: {fileID: -999328570, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+      flipX: 0
+    - eatSprite: {fileID: 512492454, guid: 050ad1f0049ae411c99e011ad47e8ce0, type: 3}
+      regurgitateSprite: {fileID: -329337156, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+      flipX: 0
+    - eatSprite: {fileID: -640908481, guid: 050ad1f0049ae411c99e011ad47e8ce0, type: 3}
+      regurgitateSprite: {fileID: 1637763126, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+      flipX: 1
+    - eatSprite: {fileID: 512492454, guid: 050ad1f0049ae411c99e011ad47e8ce0, type: 3}
+      regurgitateSprite: {fileID: -329337156, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+      flipX: 1
+    - eatSprite: {fileID: -640908481, guid: 050ad1f0049ae411c99e011ad47e8ce0, type: 3}
+      regurgitateSprite: {fileID: 1637763126, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+      flipX: 0
+  failSprite: {fileID: -1674960553, guid: d64742ecb04cf49bcbead8cff65e34a3, type: 3}
+  spriteRenderer: {fileID: 6642852546975559987}
+--- !u!114 &241016823217285546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816904162528135967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0309383dc74cdda92d8bee320346da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProjectileEnemy
+  damage: 1
+  hurtSound: 5
+  deathSound: 6
+  eatSound: 0
+  regurgitateSound: 6
+  hurtParticles: 7
+  killedParticles: 8
+  MovementStun: 0
+  mover: {fileID: 0}
+  minDistance: 5
+  maxDistance: 50
+  chargeDuration: 0
+  projectilePrefab: {fileID: -1870728367297521537, guid: 23ed54b560ab64b629534334b2e4c41b, type: 3}

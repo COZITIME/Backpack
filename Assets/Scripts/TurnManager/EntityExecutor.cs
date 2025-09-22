@@ -122,11 +122,10 @@ public class EntityExecutor : MonoBehaviour
 
     public virtual IEnumerator OnKilledCoroutine()
     {
-        this.DOKill(false);
+        this.DOKill(true);
         Sprite.DOColor(Color.red, 0.3f);
 
         ParticleManager.Instance.PlayParticles(killedParticles, EntityTransform.GetParticlePosition());
-
 
         StartCoroutine(EntityCoroutines.ScaleToCoroutine(transform, .5f, transform.localScale, Vector3.zero));
 
@@ -141,7 +140,7 @@ public class EntityExecutor : MonoBehaviour
 
     public virtual IEnumerator OnDamagedCoroutine()
     {
-        this.DOKill(false);
+        this.DOKill(true);
         var colourTween = Sprite.DOColor(Color.red, 0.2f);
         colourTween.onComplete += () => colourTween.Rewind();
 
@@ -181,19 +180,26 @@ public class EntityExecutor : MonoBehaviour
             yield return Data.Damage(1);
         }
 
-        if (traitFlags.HasFlag(Trait.Morsel) && isInBelly)
-        {
-            this.Data.TryEatMorsel();
-        }
+        // if (traitFlags.HasFlag(Trait.Morsel) && isInBelly)
+        // {
+        //     this.Data.TryEatMorsel();
+        // }
     }
 
     public virtual IEnumerator BurnEntity(EntityData enemy)
     {
         if (enemy.IsInvincible) yield break;
+        int realDamage = damage;
+
+        if (enemy.EntityTransform is PlayerTransform playerTransform)
+        {
+            realDamage = MouthHelper.GetMouthBlockedDamage(EntityTransform.MapPosition, damage);
+        }
+
         var part = ParticleManager.Instance.PlayParticles(ParticleType.Burn, EntityTransform.GetParticlePosition());
-        yield return part.transform.DOMove(enemy.transform.position, .2f);
+        yield return part.transform.DOMove(enemy.EntityTransform.GetParticlePosition(), .2f);
         SoundManager.Instance.Play(hurtSound);
-        yield return enemy.Damage(damage);
+        yield return enemy.Damage(realDamage);
     }
 
     private IEnumerator ExplodeCoroutine()
@@ -203,8 +209,17 @@ public class EntityExecutor : MonoBehaviour
         var neighbours = NeighbourGetter.GetNeighboursInDistance(EntityTransform, 2);
         foreach (var neighbour in neighbours)
         {
+            var nData = neighbour.EntityData;
+            if (nData.IsInvincible) continue;
+            int realDamage = damage;
+
+            if (neighbour is PlayerTransform)
+            {
+                realDamage = MouthHelper.GetMouthBlockedDamage(EntityTransform.MapPosition, damage);
+            }
+
             yield return new WaitForSeconds(.2f);
-            yield return (neighbour.EntityData.Damage(damage));
+            yield return (neighbour.EntityData.Damage(realDamage));
         }
 
         yield return new WaitForSeconds(.3f);

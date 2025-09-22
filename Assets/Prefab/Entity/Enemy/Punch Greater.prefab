@@ -73,6 +73,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: Id
+      value: Punch Greater
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
@@ -86,11 +90,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: entityName
-      value: Greater Punch
+      value: Greater Gnashclaws
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: description
-      value: Packs a slight punch and tanks an extra hit.
+      value: 'Super Hard-shelled scavengers that deal damage if they end a turn beside
+        you. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: morselHealth
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

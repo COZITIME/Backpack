@@ -1,9 +1,10 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
-[RequireComponent(typeof(PlayerArtHandler))]
+[RequireComponent(typeof(DirectionalArtHandler))]
 public class PlayerInputHandler : MonoBehaviour
 {
     [FormerlySerializedAs("player")]
@@ -11,74 +12,77 @@ public class PlayerInputHandler : MonoBehaviour
 
     private PlayerInputActions _inputActions;
 
-    private FaceDirection _forwards = FaceDirection.Down;
-    private Vector2Int _faceInput;
+    private Coroutine _inputCoroutine;
+    public static PlayerInputHandler Instance { get; private set; }
 
-    private Coroutine _releaseCoroutine;
+    private Vector2 _inputSum;
+    private bool _stopMoveInput = false;
 
     private void Awake()
     {
+        Instance = this;
         _inputActions = new PlayerInputActions();
         _inputActions.Enable();
 
         _inputActions.Gameplay.Move.performed += OnMove;
-        _inputActions.Gameplay.Move.canceled += OnFaceCanceled;
-        _inputActions.Gameplay.Wait.canceled += OnWait;
+        _inputActions.Gameplay.Wait.performed += OnWait;
+        _inputActions.Gameplay.Move.canceled += _ => { _stopMoveInput = false; };
     }
+
 
     private void OnDestroy()
     {
-        _inputActions.Disable();
-        _inputActions.Dispose();
+        _inputActions?.Disable();
+        _inputActions?.Dispose();
     }
 
-    // -------- Facing --------
     private void OnMove(InputAction.CallbackContext btn)
     {
-        var input = Vector2Int.RoundToInt(btn.ReadValue<Vector2>());
+        if (_stopMoveInput) return;
 
-
-        if (_faceInput == Vector2Int.zero ||
-            input.magnitude > _faceInput.magnitude) // gone from nothing or gotten bigger
+        if (_inputCoroutine == null)
         {
-            ApplyFacing(input);
+            StartCoroutine(OnMoveDelayedInputCoroutine());
+            _inputSum = Vector2.zero;
         }
-        else if (_faceInput != input) // we have released something
-        {
-            if (_releaseCoroutine != null)
-            {
-                StopCoroutine(_releaseCoroutine);
-            }
 
-            _releaseCoroutine = this.ExecuteDelayedRealtime(0.05f, () => { ApplyFacing(input); });
+        _inputSum += Vector2Int.RoundToInt(btn.ReadValue<Vector2>());
+    }
+
+    private IEnumerator OnMoveDelayedInputCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(.05f);
+        _stopMoveInput = true;
+        if (_inputSum != Vector2.zero)
+        {
+            var intSum = Vector2Int.RoundToInt(_inputSum);
+            if (intSum != Vector2Int.zero)
+            {
+                var dir = intSum.DirectionToFaceDirection(true);
+                OnButtonClicked(dir);
+            }
+        }
+    }
+
+    private void OnWait(InputAction.CallbackContext ctx)
+    {
+        OnButtonClicked(null);
+    }
+
+    public void OnButtonClicked(FaceDirection? direction)
+    {
+        _inputSum = Vector2.zero;
+
+        if (direction.HasValue)
+        {
+            var faceVector = direction.Value;
+            var faceDirection = faceVector.FaceDirectionToDirection();
+            playerTransform.FaceInDirection(faceVector);
+            playerTransform.TryTranslate(faceDirection);
         }
         else
         {
-            ApplyFacing(input);
+            PlayerTransform.Instance.DoNothingTurn();
         }
-    }
-
-    private void OnFaceCanceled(InputAction.CallbackContext ctx)
-    {
-        if (_releaseCoroutine != null)
-        {
-            StopCoroutine(_releaseCoroutine);
-        }
-
-        playerTransform.TryTranslate(_forwards.FaceDirectionToDirection());
-        _faceInput = Vector2Int.zero;
-    }
-
-    private void ApplyFacing(Vector2Int dir)
-    {
-        if (dir != Vector2Int.zero) _forwards = dir.DirectionToFaceDirection();
-        _faceInput = dir;
-        playerTransform.FaceInDirection(_forwards);
-    }
-
-    // -------- Stepping --------
-    private void OnWait(InputAction.CallbackContext ctx)
-    {
-        PlayerTransform.Instance.DoNothingTurn();
     }
 }

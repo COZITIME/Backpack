@@ -8,6 +8,9 @@ public class EntityData : MonoBehaviour
 {
     public event Action<int> OnHealthChange;
 
+    [BoxGroup("Id"), SerializeField, ShowInInspector, DisplayAsString]
+    public string Id;
+
     [BoxGroup("Description"), SerializeField]
     private string entityName;
 
@@ -49,9 +52,12 @@ public class EntityData : MonoBehaviour
     public string Description => description;
     public bool IsMorsel => traits.HasFlag(Trait.Morsel);
     public bool IsRelic => traits.HasFlag(Trait.Relic);
-
     public bool IsMaxHealth => _health >= maxHealth;
 
+    private void OnValidate()
+    {
+        Id = this.name;
+    }
 
     private void Awake()
     {
@@ -77,9 +83,18 @@ public class EntityData : MonoBehaviour
         yield return IsDead ? Executor.OnKilledCoroutine() : Executor.OnDamagedCoroutine();
     }
 
+    public IEnumerator ForceKill()
+    {
+        _health = 0;
+        Kill();
+        _isKilled = true;
+        OnHealthChange?.Invoke(0);
+        yield return Executor.OnKilledCoroutine();
+    }
+
     private void Kill()
     {
-        if (!traits.HasFlag(Trait.Morsel) && !traits.HasFlag(Trait.Relic))
+        if (!traits.HasFlag(Trait.Morsel) && !traits.HasFlag(Trait.Relic) && !traits.HasFlag(Trait.Projectile))
         {
             MorselSpawningManager.Instance.OnSpawnFromEntity(EntityTransform);
         }
@@ -91,6 +106,8 @@ public class EntityData : MonoBehaviour
 
     public void TryEatMorsel()
     {
+        if (!IsMorsel) return;
+
         if (morselHealth > 0 && PlayerTransform.Instance.EntityData.IsMaxHealth)
         {
             return; // only eat health ones if not at max health

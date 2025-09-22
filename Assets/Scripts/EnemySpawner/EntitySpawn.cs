@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,8 +17,8 @@ public class EntitySpawn
     public int maxOfTypeAtOnce = 10;
 
     public EntityData Prefab => prefab;
-    
-    public bool IsValid()
+
+    public bool IsValid(List<EntityData> excludedEntities = null)
     {
         var progressionManager = ProgressionManager.Instance;
         if (minLevelToAppear > progressionManager.Level)
@@ -34,6 +35,11 @@ public class EntitySpawn
         if (otherEntitiesOfKindCount > maxOfTypeAtOnce)
         {
             return false;
+        }
+
+        if (excludedEntities != null)
+        {
+            if (excludedEntities.Contains(prefab)) return false;
         }
 
         return true;

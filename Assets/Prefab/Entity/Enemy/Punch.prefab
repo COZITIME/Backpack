@@ -33,6 +33,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 0df38b36211fb4398bd1d804bc5b0818, type: 2}
     - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -72,6 +84,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2414186951072653639, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: Id
+      value: Punch
+      objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: health
       value: 3
@@ -86,11 +106,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: entityName
-      value: Punch
+      value: Gnashclaws
       objectReference: {fileID: 0}
     - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
       propertyPath: description
-      value: Packs a slight punch
+      value: 'Hard-shelled scavengers that deal damage if they end a turn beside
+        you. Inside the stomach they become trapped, and are at the mercy of the
+        dangers surrounding them. When reduced to zero health they collapse into
+        a morsel. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438958730963386378, guid: d6da5f2afe27346f3a5c11c3b5f467bd, type: 3}
+      propertyPath: morselHealth
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 585e184c334a740c487a6403de2fc8e4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2297207336093039428
+    second: Arrow VomitArrow_0
+  - first:
+      213: 5641273268995330719
+    second: Arrow VomitArrow_1
+  - first:
+      213: 7183726952546945157
+    second: Arrow VomitArrow_2
+  - first:
+      213: 7175336914945098643
+    second: Arrow VomitArrow_3
+  - first:
+      213: -1081819479946630915
+    second: Arrow VomitArrow_4
+  - first:
+      213: 8283787299984897280
+    second: Arrow VomitArrow_5
+  - first:
+      213: -1289124330155565196
+    second: Arrow VomitArrow_6
+  - first:
+      213: -3881752705464203930
+    second: Arrow VomitArrow_7
+  - first:
+      213: 1841843073596334520
+    second: Arrow VomitArrow_8
+  - first:
+      213: 5837752168204867453
+    second: Arrow VomitArrow_9
+  - first:
+      213: -4070008450952968314
+    second: Arrow VomitArrow_10
+  - first:
+      213: -9207439373517373807
+    second: Arrow VomitArrow_11
+  - first:
+      213: -2612137554127717885
+    second: Arrow VomitArrow_12
+  - first:
+      213: -5688542643088095836
+    second: Arrow VomitArrow_13
+  - first:
+      213: 5138362844327177860
+    second: Arrow VomitArrow_14
+  - first:
+      213: 945166798195979669
+    second: Arrow VomitArrow_15
+  - first:
+      213: -8182406300644474085
+    second: Arrow VomitArrow_16
+  - first:
+      213: -8513788400383984550
+    second: Arrow VomitArrow_17
+  - first:
+      213: 69519806194302947
+    second: Arrow VomitArrow_18
+  - first:
+      213: 6792946614249549975
+    second: Arrow VomitArrow_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 600
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Arrow VomitArrow_0
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 634
+        width: 198
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b3f3ba6e151ef10800000000000000
+      internalID: 2297207336093039428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_1
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 972
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f929f5f3624d94e40800000000000000
+      internalID: 5641273268995330719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 577
+        width: 286
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 588c5f13a99b1b360800000000000000
+      internalID: 7183726952546945157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_3
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 852
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 393cc0758eae39360800000000000000
+      internalID: 7175336914945098643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_4
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 567
+        width: 287
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df8eeaa2aea9cf0f0800000000000000
+      internalID: -1081819479946630915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_5
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 842
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005fd72f8ace5f270800000000000000
+      internalID: 8283787299984897280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_6
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 816
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f93c5704c1c1ee0800000000000000
+      internalID: -1289124330155565196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_7
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 789
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66505e41b7e312ac0800000000000000
+      internalID: -3881752705464203930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 398
+        width: 342
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b129b5548a8f8910800000000000000
+      internalID: 1841843073596334520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_9
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 392
+        width: 340
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d771e90daacd30150800000000000000
+      internalID: 5837752168204867453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_10
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 504
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6874c10b0ec6487c0800000000000000
+      internalID: -4070008450952968314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 467
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19e3d824caa983080800000000000000
+      internalID: -9207439373517373807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_12
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 182
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a72c5fbb2dfbbd0800000000000000
+      internalID: -2612137554127717885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_13
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 135
+        width: 287
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a58215fa9c3e01b0800000000000000
+      internalID: -5688542643088095836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_14
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 11
+        width: 198
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48eef2f58c12f4740800000000000000
+      internalID: 5138362844327177860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_15
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 125
+        width: 286
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595f6fbf138ed1d00800000000000000
+      internalID: 945166798195979669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_16
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 154
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b130b2262d0427e80800000000000000
+      internalID: -8182406300644474085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_17
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 130
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c754ece82f8d980800000000000000
+      internalID: -8513788400383984550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_18
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 119
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3efb01935ebf6f000800000000000000
+      internalID: 69519806194302947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow VomitArrow_19
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 790798084f4654e50800000000000000
+      internalID: 6792946614249549975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Arrow VomitArrow_0: 2297207336093039428
+      Arrow VomitArrow_1: 5641273268995330719
+      Arrow VomitArrow_10: -4070008450952968314
+      Arrow VomitArrow_11: -9207439373517373807
+      Arrow VomitArrow_12: -2612137554127717885
+      Arrow VomitArrow_13: -5688542643088095836
+      Arrow VomitArrow_14: 5138362844327177860
+      Arrow VomitArrow_15: 945166798195979669
+      Arrow VomitArrow_16: -8182406300644474085
+      Arrow VomitArrow_17: -8513788400383984550
+      Arrow VomitArrow_18: 69519806194302947
+      Arrow VomitArrow_19: 6792946614249549975
+      Arrow VomitArrow_2: 7183726952546945157
+      Arrow VomitArrow_3: 7175336914945098643
+      Arrow VomitArrow_4: -1081819479946630915
+      Arrow VomitArrow_5: 8283787299984897280
+      Arrow VomitArrow_6: -1289124330155565196
+      Arrow VomitArrow_7: -3881752705464203930
+      Arrow VomitArrow_8: 1841843073596334520
+      Arrow VomitArrow_9: 5837752168204867453
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

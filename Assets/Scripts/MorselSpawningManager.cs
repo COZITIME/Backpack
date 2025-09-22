@@ -37,7 +37,7 @@ public class MorselSpawningManager : MonoBehaviour
         }
         else
         {
-            spawn.SnapToPosition(Vector2Int.RoundToInt(oldEntity.transform.position));
+            spawn.SnapToPosition(oldEntity.MapPosition);
         }
 
         TurnManager.Instance.Replace(bellyIndex.HasValue, spawn.EntityExecutor, oldEntity.EntityExecutor);

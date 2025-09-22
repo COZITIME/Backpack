@@ -14,6 +14,7 @@ public class PlayerExecutor : EntityExecutor
 
     public override IEnumerator ExecuteMovementCoroutine()
     {
+        ArrowButtonManager.Instance.UpdateButtons();
         yield return base.ExecuteMovementCoroutine();
         yield return _playerTransform.AwaitInputCoroutine();
     }

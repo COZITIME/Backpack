@@ -26,7 +26,7 @@ public class ToolTipManager : MonoBehaviour
 
     private void OnValidate()
     {
-        if (layoutGroup == null)
+        if (layoutGroup == null && tooltipRoot != null)
         {
             layoutGroup = tooltipRoot.GetComponent<LayoutGroup>();
         }

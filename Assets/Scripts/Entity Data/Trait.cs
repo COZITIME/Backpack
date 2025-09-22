@@ -11,4 +11,5 @@ public enum Trait
     Bomb = 1 << 4,
     Relic = 1 << 5,
     Morsel = 1 << 6,
+    Projectile = 1 << 7,
 }

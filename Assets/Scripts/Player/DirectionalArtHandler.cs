@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class PlayerArtHandler : MonoBehaviour
+public class DirectionalArtHandler : MonoBehaviour
 {
     [SerializeField]
     private SerializedDictionary<FaceDirection, PlayerDirectionalArt> arts = new();

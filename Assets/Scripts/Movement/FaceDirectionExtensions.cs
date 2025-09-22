@@ -19,8 +19,14 @@ public static class FaceDirectionExtensions
         };
     }
 
-    public static FaceDirection DirectionToFaceDirection(this Vector2Int direction)
+    public static FaceDirection DirectionToFaceDirection(this Vector2Int direction, bool normalise = false)
     {
+        if (normalise)
+        {
+            direction = direction.Normalise();
+        }
+
+
         return direction switch
         {
             { x: 0, y: 1 } => FaceDirection.Up,
@@ -33,8 +39,7 @@ public static class FaceDirectionExtensions
             { x: 1, y: 1 } => FaceDirection.RightUp,
             { x: 1, y: -1 } => FaceDirection.RightDown,
 
-            _ => throw new ArgumentOutOfRangeException(nameof(direction), direction,
-                "Direction must be one of the 8 cardinal/diagonal unit vectors.")
+            _ => FaceDirection.Down
         };
     }
 
@@ -59,18 +64,23 @@ public static class FaceDirectionExtensions
     {
         return faceDirection switch
         {
-            FaceDirection.Up        => FaceDirection.Down,
-            FaceDirection.Down      => FaceDirection.Up,
-            FaceDirection.Left      => FaceDirection.Right,
-            FaceDirection.Right     => FaceDirection.Left,
+            FaceDirection.Up => FaceDirection.Down,
+            FaceDirection.Down => FaceDirection.Up,
+            FaceDirection.Left => FaceDirection.Right,
+            FaceDirection.Right => FaceDirection.Left,
 
-            FaceDirection.LeftUp    => FaceDirection.RightDown,
-            FaceDirection.LeftDown  => FaceDirection.RightUp,
-            FaceDirection.RightUp   => FaceDirection.LeftDown,
+            FaceDirection.LeftUp => FaceDirection.RightDown,
+            FaceDirection.LeftDown => FaceDirection.RightUp,
+            FaceDirection.RightUp => FaceDirection.LeftDown,
             FaceDirection.RightDown => FaceDirection.LeftUp,
 
             _ => throw new ArgumentOutOfRangeException(nameof(faceDirection), faceDirection, null)
         };
     }
 
+    public static Vector2Int Normalise(this Vector2Int direction)
+    {
+        Vector2 v2 = direction;
+        return Vector2Int.RoundToInt(v2.normalized);
+    }
 }

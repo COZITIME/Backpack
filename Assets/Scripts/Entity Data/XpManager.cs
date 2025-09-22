@@ -32,6 +32,7 @@ public class XpManager : MonoBehaviour
 
 
     public int Xp => _xp;
+    public int Level => _level;
 
     private int _xp;
     private int _level;
@@ -43,11 +44,10 @@ public class XpManager : MonoBehaviour
 
     private void Start()
     {
-        _level = GetLevel();
+        _level = 1;
         levelText.text = $"Lv {_level}";
         xpBar.fillAmount = GetFillAmount();
         UpdateBonePosition(0f);
-
         GainXp(0);
     }
 
@@ -55,32 +55,44 @@ public class XpManager : MonoBehaviour
     {
         _xp += amount;
 
-        int newLevel = GetLevel();
+
+        TryLevelUp();
+    }
+
+    private void TryLevelUp()
+    {
         float newFill = GetFillAmount();
+
+        bool isLevelUp = IsLevelUp();
+        if (isLevelUp) newFill = 1f;
 
         // Animate the bar fill
         xpBar.DOFillAmount(newFill, 0.35f)
             .SetEase(Ease.OutQuad)
-            .OnUpdate(() => UpdateBonePosition(xpBar.fillAmount));
+            .OnUpdate(() => UpdateBonePosition(xpBar.fillAmount))
+            .SetUpdate(true);
 
         // If we leveled up, animate the text & fire the action
-        if (newLevel > _level)
+        if (!isLevelUp) return;
+        _level++; // next level
+
+        // Invoke the event so other systems can react
+        OnLevelUp?.Invoke(_level);
+
+        // Animate the text
+        levelText.text = $"Lv {_level}";
+        levelText.transform
+            .DOScale(1.3f, 0.15f)
+            .SetLoops(2, LoopType.Yoyo)
+            .SetUpdate(true);
+
+        SoundManager.Instance.Play(levelUpSound);
+
+        RelicSpawnManager.Instance.SpawnRelics(() =>
         {
-            _level = newLevel;
-
-            // Invoke the event so other systems can react
-            OnLevelUp?.Invoke(_level);
-
-            // Animate the text
-            levelText.text = $"Lv {_level}";
-            levelText.transform
-                .DOScale(1.3f, 0.15f)
-                .SetLoops(2, LoopType.Yoyo);
-
-            SoundManager.Instance.Play(levelUpSound);
-
-            RelicSpawnManager.Instance.SpawnRelics(() => { Debug.Log("Spawn Relics"); });
-        }
+            Debug.Log("Relic Spawned");
+            TryLevelUp();
+        });
     }
 
     private float GetFillAmount()
@@ -108,34 +120,25 @@ public class XpManager : MonoBehaviour
         return total;
     }
 
-    public int GetLevel()
+    public bool IsLevelUp() => IsLevelUp(out _);
+
+    public bool IsLevelUp(out int remainingXp)
     {
         int level = 1;
         int xpForNext = xpRequiredAt1;
-        int remainingXp = _xp;
+        remainingXp = _xp;
 
         while (remainingXp >= xpForNext)
         {
             remainingXp -= xpForNext;
             level++;
+
+            if (level > _level) return true;
+
             xpForNext += xpIncreaseAtNextLevel;
         }
 
-        return level;
-    }
-
-    public int GetXpToNextLevel()
-    {
-        int xpForNext = xpRequiredAt1;
-        int totalXpNeeded = 0;
-
-        while (_xp >= totalXpNeeded + xpForNext)
-        {
-            totalXpNeeded += xpForNext;
-            xpForNext += xpIncreaseAtNextLevel;
-        }
-
-        return (totalXpNeeded + xpForNext) - _xp;
+        return false;
     }
 
 
