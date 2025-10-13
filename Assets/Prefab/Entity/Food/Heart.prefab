@@ -85,6 +85,14 @@ PrefabInstance:
       value: Heart
       objectReference: {fileID: 0}
     - target: {fileID: 8893916852535163712, guid: 3ea856431089f47878f93e1671a1d647, type: 3}
+      propertyPath: Id
+      value: Heart
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893916852535163712, guid: 3ea856431089f47878f93e1671a1d647, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893916852535163712, guid: 3ea856431089f47878f93e1671a1d647, type: 3}
       propertyPath: entityName
       value: Corebit
       objectReference: {fileID: 0}

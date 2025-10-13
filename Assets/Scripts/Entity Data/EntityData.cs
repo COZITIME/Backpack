@@ -23,7 +23,7 @@ public class EntityData : MonoBehaviour
     [BoxGroup("Traits"), SerializeField]
     private Trait traits;
 
-    [BoxGroup("Health"), SerializeField, HideIf(nameof(IsInvincible))]
+    [BoxGroup("Health"), SerializeField, HideIf(nameof(IsRelic))]
     private int maxHealth;
 
     [BoxGroup("Health"), ShowInInspector, DisplayAsString]
@@ -48,7 +48,7 @@ public class EntityData : MonoBehaviour
     public Trait Traits => traits;
     public string ColouredName => entityName.ToColouredString(nameColour);
     public bool IsDead => _health <= 0;
-    public bool IsInvincible => IsRelic || IsMorsel;
+    public bool IsInvincibleToDamage => IsRelic || IsMorsel;
     public string Description => description;
     public bool IsMorsel => traits.HasFlag(Trait.Morsel);
     public bool IsRelic => traits.HasFlag(Trait.Relic);
@@ -66,9 +66,9 @@ public class EntityData : MonoBehaviour
         _health = maxHealth;
     }
 
-    public IEnumerator Damage(int amount)
+    public IEnumerator Damage(int amount, bool ignoreInvincibility = false)
     {
-        if (IsInvincible) yield break;
+        if (IsInvincibleToDamage && !ignoreInvincibility) yield break;
         if (_isKilled) yield break;
 
         _health -= amount;

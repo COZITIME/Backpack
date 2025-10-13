@@ -125,12 +125,12 @@ TextureImporter:
       name: PROJECTILE_shroom_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 344
-        width: 139
-        height: 107
+        x: 57
+        y: 327
+        width: 105
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: PROJECTILE_shroom_1
       rect:
         serializedVersion: 2
-        x: 306
-        y: 334
-        width: 145
-        height: 112
+        x: 337
+        y: 320
+        width: 110
+        height: 143
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: PROJECTILE_shroom_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 69
-        width: 166
-        height: 123
+        x: 72
+        y: 46
+        width: 121
+        height: 163
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: PROJECTILE_shroom_3
       rect:
         serializedVersion: 2
-        x: 283
-        y: 66
-        width: 181
-        height: 134
+        x: 329
+        y: 56
+        width: 131
+        height: 178
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 008545bcae8ef41ed976f1c381f5bf92
     internalID: 0
     vertices: []
     indices: 
@@ -221,7 +221,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       PROJECTILE_shroom_0: -5111478572386145104
       PROJECTILE_shroom_1: 5308338663466542620

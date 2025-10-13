@@ -32,7 +32,7 @@ public class EntitySpawn
         }
 
         var otherEntitiesOfKindCount = progressionManager.GetOtherEntitiesOfKindCount(prefab);
-        if (otherEntitiesOfKindCount > maxOfTypeAtOnce)
+        if (otherEntitiesOfKindCount >= maxOfTypeAtOnce)
         {
             return false;
         }

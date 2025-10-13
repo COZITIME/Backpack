@@ -41,5 +41,7 @@ public class MorselSpawningManager : MonoBehaviour
         }
 
         TurnManager.Instance.Replace(bellyIndex.HasValue, spawn.EntityExecutor, oldEntity.EntityExecutor);
+        
+        
     }
 }

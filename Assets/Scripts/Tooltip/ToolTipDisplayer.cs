@@ -14,7 +14,7 @@ public class ToolTipDisplayer : MonoBehaviour,
         if (entity != null)
         {
             string headerMessage = entity.ColouredName;
-            if (!entity.IsInvincible) headerMessage += $" ({entity.Health}/{entity.MaxHealth})";
+            if (!entity.IsRelic) headerMessage += $" ({entity.Health}/{entity.MaxHealth})";
             if (!string.IsNullOrWhiteSpace(entity.Description))
                 headerMessage += $"\n{entity.Description}";
             lines.Add(headerMessage);

@@ -15,19 +15,19 @@ public static class MouthHelper
         return false;
     }
 
-    public static FaceDirection MouthDirection()
+    public static FaceDirection Direction()
     {
         return Player.Direction;
     }
 
     public static Vector2Int MouthPosition()
     {
-        return Player.MapPosition + MouthDirection().FaceDirectionToDirection();
+        return Player.MapPosition + Direction().FaceDirectionToDirection();
     }
 
     public static bool IsMouthDirection(FaceDirection direction)
     {
-        return direction == MouthDirection();
+        return direction == Direction();
     }
 
     public static int GetMouthBlockedDamage(Vector2Int attackerPos, int damage)

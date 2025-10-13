@@ -27,7 +27,7 @@ MonoBehaviour:
         prefab: {fileID: 2061514634128071981, guid: c3bd8d2f347254234a39d1458641c5a5, type: 3}
         minLevelToAppear: 0
         minProgressionToAppear: 0
-        maxOfTypeAtOnce: 3
+        maxOfTypeAtOnce: 1
     - fraction: 0.23188408
       Weight: 0.8
       Item:

@@ -111,6 +111,7 @@ MonoBehaviour:
   movementDuration: 0.2
   canBeEaten: 1
   addToMapAndTurnManagerOnStart: 0
+  rotateSpriteToFaceDirection: 1
 --- !u!114 &3783285924162258547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ec80aa46b74e0286a1ddc80dd37cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityData
+  Id: Projectile
   entityName: Projectile
   nameColour: {r: 0.94509804, g: 0.4666667, b: 0.8642401, a: 1}
   description: Can you catch this flem ball?

@@ -13,6 +13,9 @@ public class EntityTransform : MonoBehaviour
     [SerializeField]
     private bool addToMapAndTurnManagerOnStart = false;
 
+    [SerializeField]
+    private bool rotateSpriteToFaceDirection = false;
+    
     public Vector2Int MapPosition { get; private set; }
     public int? BellyIndex { get; set; }
 
@@ -21,12 +24,13 @@ public class EntityTransform : MonoBehaviour
     private Coroutine _movementCoroutine;
     private Coroutine _eatCoroutine;
 
-
     private Vector2 _lastStomachPosition;
 
     public EntityData EntityData { get; private set; }
     public EntityExecutor EntityExecutor { get; private set; }
 
+   
+    
 
     protected virtual void Awake()
     {
@@ -82,7 +86,7 @@ public class EntityTransform : MonoBehaviour
     public virtual void FaceInDirection(FaceDirection direction)
     {
         Direction = direction;
-        if (RotateSprite)
+        if (rotateSpriteToFaceDirection)
         {
             transform.rotation = Quaternion.Euler(0, 0, direction.FaceDirectionToAngle());
         }
@@ -113,7 +117,7 @@ public class EntityTransform : MonoBehaviour
     }
 
 
-    protected virtual bool RotateSprite => false;
+  
 
 
     private IEnumerator MoveToPositionAnimationCoroutine()

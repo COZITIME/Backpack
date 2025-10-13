@@ -144,8 +144,12 @@ public class EntityExecutor : MonoBehaviour
         var colourTween = Sprite.DOColor(Color.red, 0.2f);
         colourTween.onComplete += () => colourTween.Rewind();
 
-        var particles = ParticleManager.Instance.PlayParticles(hurtParticles, EntityTransform.GetParticlePosition());
-        particles.transform.SetParent(transform);
+        if (hurtParticles != ParticleType.None)
+        {
+            var particles =
+                ParticleManager.Instance.PlayParticles(hurtParticles, EntityTransform.GetParticlePosition());
+            particles.transform.SetParent(transform);
+        }
 
         SoundManager.Instance.Play(hurtSound);
 
@@ -188,7 +192,7 @@ public class EntityExecutor : MonoBehaviour
 
     public virtual IEnumerator BurnEntity(EntityData enemy)
     {
-        if (enemy.IsInvincible) yield break;
+        if (enemy.IsInvincibleToDamage) yield break;
         int realDamage = damage;
 
         if (enemy.EntityTransform is PlayerTransform playerTransform)
@@ -210,7 +214,7 @@ public class EntityExecutor : MonoBehaviour
         foreach (var neighbour in neighbours)
         {
             var nData = neighbour.EntityData;
-            if (nData.IsInvincible) continue;
+            if (nData.IsInvincibleToDamage) continue;
             int realDamage = damage;
 
             if (neighbour is PlayerTransform)

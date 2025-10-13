@@ -63,7 +63,7 @@ public class ProjectileExecutor : EntityExecutor
                         }
 
                         var hitData = entity.EntityData;
-                        if (hitData.IsInvincible) continue;
+                        if (hitData.IsInvincibleToDamage) continue;
 
                         yield return hitData.Damage(damage);
                     }
@@ -86,7 +86,7 @@ public class ProjectileExecutor : EntityExecutor
     public override IEnumerator OnRegurgitatedCoroutine()
     {
         _shooter = MouthHelper.Player.EntityExecutor;
-        SetUp(MouthHelper.Player.EntityExecutor, MouthHelper.MouthDirection());
+        SetUp(MouthHelper.Player.EntityExecutor, MouthHelper.Direction().ToOpposite());
         yield return null;
     }
 }

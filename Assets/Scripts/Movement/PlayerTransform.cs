@@ -60,7 +60,7 @@ public class PlayerTransform : EntityTransform
             {
                 insideData.TryEatMorsel();
             }
-            else if (!insideData.IsInvincible)
+            else if (!insideData.IsInvincibleToDamage)
             {
                 if (dealDamage)
                 {

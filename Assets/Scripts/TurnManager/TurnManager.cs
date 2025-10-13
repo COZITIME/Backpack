@@ -94,13 +94,13 @@ public class TurnManager : MonoBehaviour
 
             yield return null;
 
-            // enemies on map
+            // entities on map
 
             var waitForMapDelay = new WaitForSeconds(onMapDelay);
             for (var index = 0; index < _entitiesOnMap.Count; index++)
             {
                 EntityExecutor entity = _entitiesOnMap[index];
-                if (!entity || entity.Data.IsMorsel || entity.Data.IsRelic) continue;
+                if (!entity || entity.Data.IsRelic) continue;
                 StartCoroutine(entity.ExecuteOutsideBellyEffectCoroutine());
                 if (!entity.Data.IsDead)
                 {
